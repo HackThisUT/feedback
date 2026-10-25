@@ -1,214 +1,1405 @@
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Lokale Wochenreflexion für den Schulalltag">
-<title>Wochenreflexion Schulalltag</title>
-<meta name="theme-color" content="#0d5c4a" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111a17" media="(prefers-color-scheme: dark)">
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#21745c" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111b18" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Wochenreflexion">
-<meta name="application-name" content="Wochenreflexion">
+<meta name="apple-mobile-web-app-title" content="Andreas">
 <meta name="format-detection" content="telephone=no">
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon-180.png">
-<link rel="apple-touch-icon" sizes="167x167" href="./icons/apple-touch-icon-167.png">
-<link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152.png">
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-<link rel="apple-touch-startup-image" href="./icons/splash-1206x2622.png" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<title>Andreas · Körperkompass v3</title>
 <style>
-:root{color-scheme:light;--ink:#17231e;--muted:#4b5d55;--paper:#f7f4ec;--card:#fffdf8;--line:#b7c7bc;--mint:#d9eee3;--sage:#3f8768;--deep:#0d5c4a;--coral:#8f3d2c;--gold:#8a5d00;--control:#fffefa;--soft:#edf3ee;--notice:#e7f3e9;--notice-ink:#254f39;--bar:#e0e8e2;--shadow:0 14px 40px rgba(23,35,30,.12);--radius:20px;font-family:ui-rounded,"Avenir Next",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper)}
-:root[data-theme="dark"]{color-scheme:dark;--ink:#f4f8f5;--muted:#c4d1c8;--paper:#111a17;--card:#1b2a23;--line:#52695d;--mint:#254a39;--sage:#9fddb9;--deep:#9fddb9;--coral:#ffb199;--gold:#f4cd78;--control:#16231d;--soft:#263a30;--notice:#203d2b;--notice-ink:#e0f1e4;--bar:#31483b;--shadow:0 14px 40px rgba(0,0,0,.28)}
-*{box-sizing:border-box}html{overflow-x:hidden}body{margin:0;min-height:100vh;background:radial-gradient(circle at 10% 0%,#e3f0e7 0 22%,transparent 43%),var(--paper);font-size:17px;line-height:1.45} :root[data-theme="dark"] body{background:radial-gradient(circle at 10% 0%,#203b2e 0 18%,transparent 45%),var(--paper)}
-button,input,textarea,select{font:inherit;font-size:16px}button{cursor:pointer}.shell{max-width:1120px;margin:auto;padding:20px 16px 60px}header{display:flex;gap:18px;justify-content:space-between;align-items:flex-start;margin:5px 0 20px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2rem,6vw,4rem);line-height:.95;letter-spacing:-.07em;max-width:650px;margin-bottom:12px;color:var(--deep)}h1 span{color:var(--coral)}.eyebrow{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--deep);font-weight:800;margin-bottom:12px}.lede{color:var(--muted);max-width:620px;line-height:1.5}.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.btn{border:2px solid var(--line);background:var(--control);color:var(--ink);padding:10px 14px;border-radius:999px;min-height:48px;transition:.2s;box-shadow:0 2px 0 rgba(0,0,0,.08)}.btn:hover{transform:translateY(-1px);border-color:var(--sage)}.btn:focus-visible,.tab:focus-visible,.scale input:focus-visible+label,.intensity input:focus-visible+label,.good:has(input:focus-visible){outline:3px solid var(--gold);outline-offset:3px}.btn.primary{background:var(--deep);border-color:var(--deep);color:#fff}.btn.danger{color:var(--coral)}.btn.small{padding:10px 12px;min-height:48px;font-size:.95rem}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:18px 0}.date-box{display:flex;align-items:center;gap:8px;background:var(--control);border:2px solid var(--line);padding:8px 12px;border-radius:14px;min-height:52px}.date-box input{border:0;background:transparent;color:var(--ink);font-weight:700;outline:0}.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 1px 14px;scrollbar-width:none;scroll-snap-type:x proximity}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;min-width:84px;min-height:56px;padding:10px 12px;border-radius:16px;border:2px solid var(--line);background:var(--control);color:var(--muted);text-align:left;scroll-snap-align:start}.tab strong{display:block;color:var(--ink);font-size:1rem}.tab small{display:block;margin-top:4px}.tab.active{background:var(--mint);border-color:var(--deep);color:var(--deep)}.checkmark{color:var(--deep);font-weight:900;margin-left:4px}.notice{background:var(--notice);border:2px solid var(--line);color:var(--notice-ink);border-radius:14px;padding:12px 15px;font-size:.95rem;line-height:1.45;margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 12;background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}.half{grid-column:span 6}h2{font-size:1.35rem;letter-spacing:-.03em;margin-bottom:5px}h3{font-size:1rem;margin:0 0 14px;color:var(--deep)}.sub{color:var(--muted);font-size:.95rem;margin-bottom:18px}.scale-row{display:grid;grid-template-columns:1fr;gap:13px}.scale-item label{display:flex;justify-content:space-between;align-items:center;font-weight:700;margin-bottom:7px}.scale{display:flex;gap:8px}.scale>span,.intensity>span{flex:1;display:flex}.scale input,.intensity input{position:absolute;opacity:0}.scale label{width:100%;min-height:52px;display:flex;align-items:center;justify-content:center;margin:0;background:var(--soft);border:2px solid var(--line);border-radius:12px;padding:12px 4px;color:var(--ink);font-weight:800;cursor:pointer}.scale input:checked+label{background:var(--deep);color:#fff;border-color:var(--deep)}.scale input:checked+label::before{content:'✓ ';font-weight:900}.load-list{display:grid;gap:12px}.load-row{display:grid;grid-template-columns:minmax(210px,1fr) minmax(300px,2fr);gap:10px;align-items:center;padding:12px 0;border-bottom:2px solid var(--soft)}.load-row:last-child{border-bottom:0}.load-name{font-weight:750;line-height:1.25;min-height:48px;display:flex;align-items:center;gap:8px}.load-name .load-level{font-weight:500;white-space:nowrap}.intensity{display:grid;grid-template-columns:repeat(6,minmax(48px,1fr));gap:6px;align-items:stretch;width:100%}.intensity-btn{min-height:52px;border:2px solid var(--line);border-radius:11px;background:var(--control);color:var(--ink);font-weight:800;cursor:pointer;transition:.15s}.intensity-btn:hover,.intensity-btn:focus-visible{border-color:var(--deep);transform:translateY(-1px)}.intensity-btn.selected{background:var(--intensity-color,var(--coral));border-color:var(--intensity-color,var(--coral));color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}.intensity-btn.selected::before{content:'✓ ';font-weight:900}.load-level{color:var(--muted);font-size:.86rem;min-width:112px}.other-input{grid-column:1/-1;width:100%;padding:10px;border:2px solid var(--line);border-radius:10px;background:var(--control);color:var(--ink)}@media(max-width:700px){.load-row{grid-template-columns:1fr;gap:8px}.intensity{grid-template-columns:repeat(6,minmax(48px,1fr));width:100%}.load-level{min-height:1.3em}}
-.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-weight:750;font-size:.95rem}.field input,.field textarea,.field select{width:100%;border:2px solid var(--line);background:var(--control);border-radius:12px;padding:12px;color:var(--ink);outline:0;min-height:48px}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus,.date-box:focus-within{border-color:var(--deep);box-shadow:0 0 0 3px color-mix(in srgb,var(--deep) 28%,transparent)}input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}.good-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.good{display:flex;align-items:center;gap:9px;border:2px solid var(--line);border-radius:12px;padding:11px;background:var(--control);min-height:52px}.good:has(input:checked){border-color:var(--deep);background:var(--mint)}.good:last-child{grid-column:1/-1}.save-note{color:var(--muted);font-size:.85rem;text-align:right;margin-top:18px}.summary-view{display:none}.summary-view.visible{display:block}.day-view.hidden{display:none}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.metric{background:var(--mint);padding:15px;border-radius:15px}.metric b{font-size:1.55rem;display:block;color:var(--deep)}.metric span{font-size:.82rem;color:var(--ink)}.bar-row{display:grid;grid-template-columns:minmax(130px,1fr) 3fr auto;align-items:center;gap:8px;margin:12px 0;font-size:.9rem}.bar{height:14px;border-radius:99px;background:var(--bar);overflow:hidden}.bar i{display:block;height:100%;background:var(--coral);border-radius:99px}.pos i{background:var(--sage)}.chart{width:100%;height:190px;background:var(--control);border:2px solid var(--line);border-radius:15px}.chart text{font-size:11px;fill:var(--muted)}.footer-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.insight{background:var(--soft);border-left:5px solid var(--sage);padding:12px 14px;border-radius:12px;margin:10px 0}.insight ul{margin:7px 0 0;padding-left:20px}.experiment{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;background:var(--control);min-height:56px}.experiment:has(input:checked){background:var(--mint);border-color:var(--deep)}.experiment input{width:22px;height:22px;accent-color:var(--deep);flex:none}.day-prompt{margin:14px 0 0;padding:11px 13px;background:var(--notice);color:var(--notice-ink);border-radius:12px;font-size:.95rem}.load-name>span:first-child{overflow-wrap:anywhere}.pause-btn{margin-top:14px;width:100%;font-weight:800}.modal-backdrop{position:fixed;inset:0;background:rgba(10,25,19,.62);display:none;align-items:center;justify-content:center;padding:14px;z-index:20}.modal-backdrop.open{display:flex}.modal{width:min(100%,520px);max-height:min(88vh,720px);overflow:auto;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 24px 70px rgba(0,0,0,.35)}.modal h2{color:var(--deep)}.action-grid{display:grid;gap:9px}.selfcare-card{display:block;text-align:left;width:100%;border:2px solid var(--line);background:var(--control);color:var(--ink);border-radius:14px;padding:13px;min-height:58px}.selfcare-card:hover,.selfcare-card:focus-visible{border-color:var(--deep);background:var(--mint)}.selfcare-card.done{border-color:var(--deep);background:var(--mint)}.modal-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.modal-actions .btn{flex:1;min-width:145px}.feedback{margin-top:10px;padding:10px;background:var(--soft);border-radius:12px}.fallback{display:none;width:100%;min-height:180px;margin-top:10px;border:2px solid var(--line);border-radius:12px;padding:12px;background:var(--control);color:var(--ink)}
-@media(max-width:700px){header{display:block}.actions{justify-content:flex-start;margin-top:18px}.actions .btn,.toolbar .btn,.footer-actions .btn{width:100%}.half{grid-column:span 12}.card{padding:16px}.metric-grid{grid-template-columns:repeat(2,1fr)}.bar-row{grid-template-columns:1fr auto}.bar-row .bar{grid-column:1/-1;grid-row:2}.good-list{grid-template-columns:1fr}.good:last-child{grid-column:auto}.scale-row{gap:16px}.load-row{grid-template-columns:1fr}.intensity{width:100%;grid-template-columns:repeat(6,minmax(42px,1fr))}.field-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.shell{padding-left:12px;padding-right:12px}}
-@media print{body{background:#fff}.actions,.toolbar .btn,.tabs,.notice,.save-note,.footer-actions{display:none!important}.shell{max-width:none;padding:0}.card{box-shadow:none;break-inside:avoid}.day-view.hidden{display:block}.summary-view{display:block!important}h1{font-size:2.4rem}}
-.storage-status{min-height:1.5em;margin:-8px 0 14px;color:var(--muted);font-size:.88rem}.storage-status.error{color:var(--coral);font-weight:700}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.import-preview{max-height:240px;overflow:auto;white-space:pre-wrap;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;font-size:.85rem}.history-row{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:2px solid var(--soft);padding:12px 0}.history-row:last-child{border-bottom:0}.history-row small{display:block;color:var(--muted)}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.btn:hover,.intensity-btn:hover{transform:none}}@media(max-width:420px){.intensity{grid-template-columns:repeat(3,minmax(42px,1fr))}.scale{gap:4px}.scale label{font-size:.9rem}.modal{padding:16px}}
-<style>
-/* Datenschutz, Kurzmodus und Fortschrittsstatus */
-.short-mode .optional-question{display:none!important}
-.progress-note{margin:8px 0 0;color:var(--muted);font-size:.92rem}
-.experiment-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.experiment-fields input{width:100%;border:2px solid var(--line);background:var(--control);color:var(--ink);border-radius:9px;padding:9px;min-height:42px}
-.experiment-fields input:last-child{grid-column:1/-1}
-.export-choice{display:grid;gap:10px}
-@media(max-width:700px){.experiment-fields{grid-template-columns:1fr}.experiment-fields input:last-child{grid-column:auto}}
-</style><style>
-/* PWA / iOS safe-area & standalone tweaks */
-:root{--safe-top:env(safe-area-inset-top,0px);--safe-bot:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px);--safe-right:env(safe-area-inset-right,0px)}
-body{padding-top:var(--safe-top);padding-bottom:var(--safe-bot);padding-left:var(--safe-left);padding-right:var(--safe-right)}
-.shell{padding-bottom:calc(60px + var(--safe-bot));padding-left:calc(16px + var(--safe-left));padding-right:calc(16px + var(--safe-right))}
-@media(max-width:700px){.shell{padding-left:calc(12px + var(--safe-left));padding-right:calc(12px + var(--safe-right))}}
-@media(display-mode:standalone){.notice{padding-top:calc(12px + var(--safe-top))}}
-</style></style>
-</head>
-<body>
-<main class="shell">
-<header><div><div class="eyebrow"></div><h1>Wochenreflexion <span>Schulalltag</span></h1><p class="lede"></p></div><input type="file" id="fileInput" accept="application/json" hidden></div></header>
-<div class="toolbar"><div class="date-box"><span>Woche ab</span><input type="date" id="weekStart" aria-label="Montag der ausgewählten Woche"></div><button class="btn primary" id="summaryBtn">Wochenauswertung →</button></div><p id="progressNote" class="progress-note" aria-live="polite"></p>
-<div id="storageStatus" class="storage-status" role="status" aria-live="polite"></div>
-<nav class="tabs" id="tabs" aria-label="Tage"></nav>
-<section id="days"></section>
-<section class="summary-view" id="summary"><div class="card"><div class="eyebrow">Rückblick</div><h2>Deine Woche auf einen Blick</h2><p class="sub" id="summaryIntro"></p><p id="summaryProgress" class="progress-note"></p><div class="metric-grid" id="metrics"></div></div><div class="grid"><div class="card half"><h3>Belastungen · Häufigkeit × Intensität</h3><div id="loadBars"></div></div><div class="card half"><h3>Was gut lief</h3><div id="goodBars"></div></div><div class="card"><h3>Selbstfürsorge-Aktionen</h3><div id="careSummary"></div></div><div class="card"><h3>Energieverlauf</h3><svg class="chart" id="chart" viewBox="0 0 700 190" role="img" aria-labelledby="chartTitle chartDesc"><title id="chartTitle">Energieverlauf</title><desc id="chartDesc">Abendenergie von Montag bis Freitag auf einer Skala von 1 bis 5. Die Werte sind auch als Text in der Wochenzusammenfassung verfügbar.</desc></svg></div></div><div class="card"><h3>Deine Muster &amp; Hinweise</h3><div id="insights"></div><h3 style="margin-top:22px">Experimente für nächste Woche</h3><div id="experiments"></div></div><div class="card"><h3>Freie Notizen aus der Woche</h3><div id="otherSummary"></div></div><div class="card"><h3>Kompakter Bericht</h3><p class="sub">Zum Einfügen in einen Chat oder für deinen Wochenrückblick.</p><button class="btn primary" id="copyBtn">Zusammenfassung als Text kopieren</button><div class="footer-actions"><button class="btn" id="csvFullBtn" type="button">CSV vollständig</button><button class="btn" id="csvLeanBtn" type="button">CSV datensparsam</button></div><textarea class="fallback" id="fallback" aria-label="Zusammenfassung zum Kopieren"></textarea><div class="footer-actions"><button class="btn small" id="backBtn">← Zurück zu den Tagen</button></div></div></section>
+:root{--bg:#f4f1e9;--panel:#fffdf8;--ink:#17231f;--muted:#708078;--line:#dfe5dc;--lime:#d7f36b;--green:#21745c;--mint:#bfe8cd;--orange:#e89b5b;--red:#c45d57;--shadow:0 18px 50px #18372a12;color-scheme:light}*{box-sizing:border-box}html[data-theme=dark]{--bg:#111b18;--panel:#1a2923;--ink:#eff5eb;--muted:#9daf9f;--line:#35463d;--green:#8dd6ab;--shadow:0 18px 50px #0005;color-scheme:dark}body{margin:0;background:radial-gradient(circle at 85% 0,#d7f36b33,transparent 32rem),var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.45}.app{max-width:1240px;margin:auto;padding:20px 18px 24px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.brand{font-family:Georgia,serif;font-size:1.45rem;font-weight:bold;letter-spacing:-.05em}.brand em{font-style:normal;color:var(--green)}.actions{display:flex;gap:8px}.icon{width:40px;height:40px;border-radius:50%;background:var(--panel);border:1px solid var(--line);color:var(--ink);font-size:1.1rem}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.hero-main{background:var(--lime);color:#152119;border-radius:27px;padding:28px 30px;min-height:190px;position:relative;overflow:hidden}.hero-main:after{content:'';position:absolute;width:230px;height:230px;border:27px solid #fff6;border-radius:50%;right:-40px;bottom:-145px}.eyebrow{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--green)}h1{font:700 clamp(2.3rem,6vw,4.8rem)/.9 Georgia,serif;letter-spacing:-.08em;margin:12px 0}.hero-main p{max-width:420px;margin:0;font-size:1.03rem}.score{background:var(--panel);border:1px solid var(--line);border-radius:27px;padding:25px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between}.score strong{font:700 3.4rem Georgia,serif}.bar{height:9px;background:var(--line);border-radius:10px;overflow:hidden;margin:12px 0}.bar i{display:block;height:100%;background:var(--green);border-radius:10px}.section-head{display:flex;justify-content:space-between;align-items:end;margin:30px 0 13px}.section-head h2{margin:0;font:700 1.65rem Georgia,serif;letter-spacing:-.04em}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:17px;box-shadow:var(--shadow)}.stat small,.label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.stat b{display:block;font:700 1.65rem Georgia,serif;margin:13px 0 2px}.tabs{display:flex;gap:5px;overflow:auto;padding:4px;background:var(--panel);border:1px solid var(--line);border-radius:18px;margin:24px 0}.tabs button{flex:1;white-space:nowrap;padding:11px 13px;border:0;border-radius:13px;background:transparent;color:var(--muted);font-weight:700}.tabs button.active{background:var(--green);color:#fff}.view{display:none}.view.active{display:block}.toolbar,.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.btn,.pill{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:10px 14px;font-weight:700}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.soft{background:var(--lime);color:#152119;border-color:var(--lime)}.btn.danger{color:var(--red)}.btn.small{padding:6px 10px;font-size:.78rem}.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:.72rem;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.06em}input,select,textarea{font:inherit;width:100%;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:10px}textarea{min-height:82px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.meal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.meal h3,.exercise h3,.supp h3{margin:0 0 5px;font:700 1.2rem Georgia,serif}.food{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:7px 0;font-size:.9rem}.food span:last-child{color:var(--muted);white-space:nowrap;margin-left:8px}.check{display:flex;gap:9px;align-items:center}.check input{width:19px;height:19px;accent-color:var(--green)}.done{opacity:.62}.days{display:flex;gap:6px;overflow:auto;margin:12px 0}.days button{min-width:76px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:9px;border-radius:12px}.days button.active{background:var(--green);color:#fff}.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:10px 0}.levels div{background:var(--bg);padding:7px;border-radius:9px;font-size:.78rem;text-align:center}.levels b{display:block;font-size:.62rem;color:var(--muted)}.table{overflow:auto}table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}th{font-size:.7rem;text-transform:uppercase;color:var(--muted)}.chart{width:100%;height:260px;background:var(--bg);border-radius:14px;margin-top:12px}.heat{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.heat div{padding:10px 5px;text-align:center;border-radius:10px;background:var(--bg);font-size:.75rem}.heat i{display:block;width:17px;height:17px;margin:5px auto;border-radius:50%;background:var(--line)}.heat i.on{background:var(--green)}.notice{padding:12px 14px;background:#fff1d8;border-left:4px solid var(--orange);color:#634a2c;border-radius:8px;margin:12px 0}.darknotice{background:color-mix(in srgb,var(--green) 14%,transparent);padding:13px;border-radius:12px}.review{border-left:4px solid var(--lime)}.timer{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin-top:14px}.timer-display{font:700 2.8rem Georgia,serif;letter-spacing:.04em}.timer-mode{display:flex;gap:6px}.timer-mode button.active{background:var(--green);color:#fff}.chart-select{max-width:260px}.checklist{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.checklist .card{box-shadow:none;padding:12px}.empty{padding:20px;text-align:center;color:var(--muted)}@media(max-width:780px){.checklist{grid-template-columns:repeat(2,1fr)}}.toast{position:fixed;z-index:9;top:16px;left:50%;transform:translate(-50%,-90px);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:99px;transition:.25s}.toast.show{transform:translate(-50%,0)}@media(max-width:780px){.app{padding:14px 12px 18px}.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.fields{grid-template-columns:repeat(2,1fr)}.cards,.meal-grid{grid-template-columns:1fr}.levels{font-size:.7rem}}
+
+/* ===== Übungs-Info, Progression, Referenz-Tab (v3) ===== */
+.info-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--mint);color:var(--ink);font-weight:700;
+  border:1px solid var(--green);cursor:pointer;font-size:13px;
+  margin-left:6px;line-height:1;padding:0;
+}
+.info-btn:hover{background:var(--lime)}
+.info-btn:focus-visible{outline:2px solid var(--green)}
+.ex-info{margin-top:10px;background:var(--mint);border-left:4px solid var(--green);
+  border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.45}
+.ex-info h4{margin:0 0 6px;font-size:14px;color:var(--green)}
+.ex-info .ex-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.ex-info .pill{font-size:11px;background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.ex-info ul{margin:6px 0 6px 18px;padding:0}
+.ex-info li{margin-bottom:3px}
+.ex-info .stage{display:grid;grid-template-columns:32px 1fr;gap:8px;align-items:start;
+  padding:6px 0;border-top:1px dashed var(--line)}
+.ex-info .stage:first-of-type{border-top:0}
+.ex-info .stage .num{font-weight:700;color:var(--green);background:var(--bg);
+  border-radius:50%;width:24px;height:24px;display:grid;place-items:center;font-size:12px}
+.ex-info .stage b{font-size:13px}
+.ex-info .stage .crit{font-size:12px;color:var(--muted);margin-top:2px}
+.ex-info .foot-note{font-size:12px;color:var(--red);margin-top:6px}
+.ex-info .regression{margin-top:8px;font-size:12px;background:#fff5ec;
+  padding:6px 8px;border-radius:6px;color:#7a4015}
+.ex-grid{display:grid;gap:12px}
+.ex-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:14px 16px;box-shadow:var(--shadow)}
+.ex-card h3{margin:0 0 4px;font-size:16px}
+.ex-card .cat{font-size:11px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.4px;margin-bottom:8px}
+.ex-card details{margin-top:6px}
+.ex-card details summary{cursor:pointer;font-weight:600;color:var(--green);
+  list-style:none;padding:6px 0;font-size:13px}
+.ex-card details summary::-webkit-details-marker{display:none}
+.ex-card details summary::before{content:'＋ ';color:var(--green)}
+.ex-card details[open] summary::before{content:'− '}
+.ex-card details .body{margin-top:8px}
+.ref-cat-title{margin:18px 0 8px;font-size:14px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.4px}
+@media(max-width:540px){.ex-info{padding:10px;font-size:13px}
+  .ex-info .stage{grid-template-columns:28px 1fr}}
+
+/* ===== Smart Timer v2 ===== */
+.timer-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.timer-top .label{margin:0}
+.timer-stage-pill{background:var(--bg);color:var(--ink);border:1px solid var(--line);font-weight:700;font-size:.72rem;padding:4px 9px;border-radius:999px;letter-spacing:.04em}
+.timer-sub{font-size:.78rem;margin:0 0 10px;color:var(--muted)}
+.timer-sub b{color:var(--ink)}
+.timer-quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.timer-quick .btn[data-preset].active{background:var(--lime);border-color:var(--lime);color:#152119}
+.timer-extra{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.stage-select{max-width:210px;padding:7px 10px;font-size:.82rem}
+.timer-side-pick .btn[data-side].active{background:var(--green);border-color:var(--green);color:#fff}
+.timer-side-pick,.timer-stage-pick{display:inline-flex;align-items:center;gap:6px}
+#timerStageSel{background:var(--panel)}
+.timer-mode{flex-wrap:wrap}
+.timer-mode .btn{min-width:auto}
+.timer-mode #timerAuto{background:var(--lime);border-color:var(--lime);color:#152119}
+.ex-card .ex-timer-btn{margin-top:10px}
+.ex-timer-btn{display:inline-flex;align-items:center;gap:6px;background:var(--bg);
+  border:1px solid var(--line);border-radius:99px;padding:5px 12px;font-size:.75rem;
+  cursor:pointer;color:var(--green);font-weight:700;width:auto}
+.ex-timer-btn:hover{background:var(--lime)}
+.ex-timer-btn b{font:700 .92rem Georgia,serif}
+.ex-timer-btn[data-armed=true]{background:var(--green);color:#fff;border-color:var(--green)}
+.timer-mini{display:inline-flex;align-items:center;gap:6px;background:var(--bg);
+  border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-size:.75rem;
+  cursor:pointer;color:var(--green);font-weight:700}
+.timer-mini:hover{background:var(--lime)}
+.timer-mini b{font:700 .9rem Georgia,serif}
+.timer-progress{height:5px;background:var(--line);border-radius:99px;margin-top:10px;overflow:hidden}
+.timer-progress i{display:block;height:100%;background:var(--green);width:0%;transition:width .4s linear}
+.timer-display.running{color:var(--green)}
+
+/* ===== PWA / iOS safe-area & touch tweaks (iPhone 17 / Dynamic Island) ===== */
+html,body{
+  -webkit-tap-highlight-color:transparent;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  overscroll-behavior-y:contain;
+  touch-action:manipulation;
+  scroll-behavior:smooth;
+  min-height:100vh;
+  min-height:100svh;
+  min-height:100dvh;
+}
+.top{padding-top:calc(14px + env(safe-area-inset-top));padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:8px}
+.app{padding-left:calc(14px + env(safe-area-inset-left));padding-right:calc(14px + env(safe-area-inset-right));padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+/* Prevent iOS auto-zoom on input focus (font-size >= 16px) */
+input[type=text],input[type=number],input[type=date],input[type=time],select,textarea{font-size:16px}
+/* Apple HIG: tap targets >= 44px */
+.btn{min-height:44px;padding:11px 16px}
+.btn.small{min-height:40px;padding:8px 12px}
+.icon{width:44px;height:44px}
+.btn:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+/* ===== Docked Mini-Timer (sticky thumb-zone bar) ===== */
+#timerMini{
+  position:fixed;left:0;right:0;bottom:0;
+  z-index:60;
+  background:var(--panel);
+  border-top:1px solid var(--line);
+  box-shadow:0 -8px 30px #00000022;
+  display:none;
+  align-items:center;gap:10px;
+  padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  backdrop-filter:saturate(180%) blur(14px);
+  background:color-mix(in srgb,var(--panel) 92%,transparent);
+}
+#timerMini.show{display:flex}
+#timerMini .mini-time{
+  font:700 clamp(1.6rem,6vw,2rem) ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--green);
+  font-variant-numeric:tabular-nums;
+  min-width:64px;text-align:center;line-height:1;
+}
+#timerMini .mini-info{flex:1;min-width:0}
+#timerMini .mini-info b{display:block;font-size:.95rem;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#timerMini .mini-info small{color:var(--muted);font-size:.78rem;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#timerMini .mini-act{display:flex;gap:8px;align-items:center}
+#timerMini .mini-act .btn{padding:10px 14px;min-height:44px;font-size:1.05rem}
+@keyframes pulseGlow{0%{box-shadow:0 0 0 0 #c45d5766}70%{box-shadow:0 0 0 22px #c45d5700}100%{box-shadow:0 0 0 0 #c45d5700}}
+#timerMini.alert{animation:pulseGlow 1.1s ease-out 3;border-color:var(--red)}
+@keyframes restGlow{0%{box-shadow:0 0 0 0 #e89b5b66}70%{box-shadow:0 0 0 18px #e89b5b00}100%{box-shadow:0 0 0 0 #e89b5b00}}
+#timerMini.rest{animation:restGlow 1.1s ease-out 2;border-color:var(--orange)}
+body.hasMiniTimer{padding-bottom:88px}
+
+
+.ios-hint{position:fixed;z-index:50;left:12px;right:12px;bottom:calc(96px + env(safe-area-inset-bottom));background:var(--ink);color:var(--bg);padding:12px 14px;border-radius:14px;display:flex;gap:10px;align-items:center;box-shadow:0 12px 40px #0005;font-size:.85rem}
+.ios-hint b{color:var(--lime)}
+.ios-hint button{margin-left:auto;background:transparent;border:1px solid var(--bg);color:var(--bg);border-radius:99px;padding:4px 10px;font-size:.75rem}
+</style></head><body><div id="toast" class="toast"></div><main class="app"><header class="top"><div class="brand"></em></div><div class="actions"><button class="icon" id="theme" title="Theme">◐</button><button class="icon" id="export" title="Export">↥</button><label class="icon" style="display:grid;place-items:center;cursor:pointer" title="Import">↧<input id="import" type="file" accept="application/json" hidden></label></div></header>
+<section class="hero"><div class="hero-main"><div class="eyebrow"></div><h1>Andreas<br>Training</h1><p></p></div><div class="score"><div><div class="eyebrow">Heute erledigt</div><strong id="score">0%</strong></div><div><div class="bar"><i id="scorebar"></i></div><small class="muted" id="scoretext">0 von 4 Punkten</small></div></div></section>
+<div class="tabs" id="tabs"><button class="active" data-view="dashboard">Dashboard</button><button data-view="profile">Profil</button><button data-view="training">Training</button><button data-view="nutrition">Ernährung</button><button data-view="supplements">Supps</button><button data-view="tracking">Tracking</button><button data-view="review">Review</button><button data-view="tips">Tipps</button><button data-view="exercises">Übungen</button></div>
+<section id="dashboard" class="view active"><div class="section-head"><h2>Überblick</h2><small class="muted" id="dateLabel"></small></div><div class="grid"><div class="stat"><span class="label">Gewicht</span><b id="dWeight">78 kg</b><small class="muted" id="dWeightSub">Start 78 · Ziel 74</small></div><div class="stat"><span class="label">Bauchumfang</span><b id="dWaist">101 cm</b><small class="muted" id="dWaistSub">Start 101 · Ziel 92</small></div><div class="stat"><span class="label">BMI</span><b id="dBmi">23,5</b><small class="muted" id="dBmiSub">Normalbereich</small></div><div class="stat"><span class="label">WHtR</span><b id="dWhtr">0,55</b><small class="muted">Ziel &lt; 0,50</small></div></div><div class="section-head"><h2>Programm</h2><div class="row"><span class="pill" id="weekLabel">Woche 1</span><button class="btn small" id="weekMinus">−</button><button class="btn small" id="weekPlus">+</button></div></div><div class="card"><div class="row" style="justify-content:space-between"><b id="progressText">0% Weg zum Ziel</b><span class="muted" id="streak">Streak: 0 Tage</span></div><div class="bar"><i id="goalbar"></i></div><div class="heat" id="heat"></div></div><div class="section-head"><h2>Verlauf</h2></div><div class="card"><svg id="trend" class="chart" viewBox="0 0 900 260" preserveAspectRatio="none"></svg></div><div class="section-head"><h2>Tages-Checkliste</h2><div class="row"><button class="btn small" id="checkPrev">‹</button><span class="pill" id="checkDate"></span><button class="btn small" id="checkNext">›</button></div></div><div id="checklist" class="checklist"></div></section>
+<section id="profile" class="view"><div class="section-head"><h2>Profil & Ziele</h2><span class="pill">automatisch berechnet</span></div><div class="card"><div class="fields" id="profileFields"></div><div class="row" style="margin-top:14px"><button class="btn primary" id="saveProfile">Profil speichern</button><span class="muted">Mifflin-St Jeor · Defizit wird aus Aktivität abgeleitet</span></div></div><div class="section-head"><h2>Deine Kennzahlen</h2></div><div class="grid"><div class="stat"><span class="label">Grundumsatz</span><b id="bmr">–</b></div><div class="stat"><span class="label">Gesamtumsatz</span><b id="tdee">–</b></div><div class="stat"><span class="label">Empfohlenes Defizit</span><b id="deficit">–</b></div><div class="stat"><span class="label">Avatar</span><b id="avatar">A</b></div></div></section>
+<section id="training" class="view"><div class="section-head"><h2>Training</h2><div class="row"><select id="trainWeek" style="width:auto"></select><button class="btn soft" id="copyWeek">Session letzte Woche kopieren</button></div></div><div </div><div class="card timer">
+  <div class="timer-top">
+    <div class="label">Übungs-Timer · <span id="timerExercise">Plank</span></div>
+    <span id="timerStagePill" class="timer-stage-pill">Stufe 2 · 30 s · 1 Seite</span>
+  </div>
+  <div id="timerDisplay" class="timer-display">00:30</div>
+  <div class="timer-progress"><i id="timerBar"></i></div>
+  <div class="timer-sub" id="timerHint">Stufe 2 = Stabilisierung (Wochen 3–4) · Plan-Vorgabe · Pause nach Satz ≈ 30 s</div>
+
+  <div class="row timer-quick" role="group" aria-label="Schnellauswahl Dauer">
+    <button class="btn small" data-preset="10"  title="10 Sekunden">10s</button>
+    <button class="btn small" data-preset="20"  title="20 Sekunden">20s</button>
+    <button class="btn small" data-preset="30"  title="30 Sekunden">30s</button>
+    <button class="btn small" data-preset="45"  title="45 Sekunden">45s</button>
+    <button class="btn small" data-preset="60"  title="60 Sekunden">60s</button>
+    <button class="btn small" data-preset="90"  title="90 Sekunden">90s</button>
+    <button class="btn small" data-preset="120" title="2 Minuten">2 Min</button>
+    <button class="btn small" data-preset="300" title="5 Minuten">5 Min</button>
+    <button class="btn small" data-preset="rest" title="Pausen-Timer">⏸ Pause</button>
+  </div>
+
+  <div class="timer-extra">
+    <button class="btn small" data-adj="-30" title="30 Sekunden weniger">−30s</button>
+    <button class="btn small" data-adj="-10" title="10 Sekunden weniger">−10s</button>
+    <button class="btn small" data-adj="+10" title="10 Sekunden mehr">+10s</button>
+    <button class="btn small" data-adj="+30" title="30 Sekunden mehr">+30s</button>
+    <span class="timer-stage-pick">
+      <label for="timerStageSel" class="muted" style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em">Stufe</label>
+      <select id="timerStageSel" class="stage-select" title="Progressions-Stufe">
+        <option value="0">1 · Einstieg (Wo. 1–2)</option>
+        <option value="1">2 · Stabilisierung (Wo. 3–4)</option>
+        <option value="2">3 · Intensivierung (Wo. 5–6)</option>
+        <option value="3">4 · Konsolidierung (Wo. 7–8)</option>
+      </select>
+    </span>
+    <span class="timer-side-pick" id="timerSidePick" hidden>
+      <label class="muted" style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em">Seite</label>
+      <button class="btn small" data-side="L">Links</button>
+      <button class="btn small" data-side="R">Rechts</button>
+      <button class="btn small" data-side="both">Beide</button>
+    </span>
+  </div>
+
+  <div class="timer-mode" style="margin-top:10px">
+    <button class="btn small active" data-timer-mode="countdown">Countdown</button>
+    <button class="btn small" data-timer-mode="stopwatch">Stoppuhr</button>
+    <button class="btn small" data-timer-mode="intervals">Intervall × N</button>
+    <button class="btn small" id="timerAuto" title="Dauer aus gewählter Übung ableiten">An Übung anpassen</button>
+  </div>
+
+  <div class="timer-extra" id="timerIntervalsRow" hidden>
+    <label class="muted" style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em">Wdh.</label>
+    <input id="timerIntervals" type="number" min="1" max="20" value="3" style="max-width:70px;padding:7px 10px">
+    <label class="muted" style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em">Pause</label>
+    <input id="timerRest" type="number" min="0" max="300" value="20" style="max-width:70px;padding:7px 10px">
+    <span class="muted" style="font-size:.78rem">Sek. zwischen Sätzen</span>
+  </div>
+
+  <div class="row" style="margin-top:12px">
+    <button class="btn primary" id="timerStart">Start</button>
+    <button class="btn" id="timerPause">Pause</button>
+    <button class="btn" id="timerReset">Reset</button>
+    <button class="btn soft" id="timerBeep" title="Beep testen">🔔</button>
+  </div>
+</div><div class="card"><div class="fields"><div class="field"><label>Datum</label><input id="trDate" type="date"></div><div class="field"><label>Einheit / Notiz</label><input id="trNote" placeholder="z. B. Ganzkörper A"></div><div class="field"><label>RPE</label><input id="trRpe" type="number" min="1" max="10" placeholder="7"></div><div class="field"><label>Übung <button type="button" class="info-btn" id="exInfoBtn" title="Details &amp; Progression">?</button></label><select id="trExercise"></select><div id="exInfoPanel"></div></div><div class="field"><label>Sätze</label><input id="trSets" type="number" value="2"></div><div class="field"><label>Wdh. / Sekunden</label><input id="trReps" type="number" value="8"></div><div class="field"><label>Gewicht (kg)</label><input id="trWeight" type="number" step="0.5" value="0"></div><div class="field"><label>Notiz</label><input id="trExNote" placeholder="Technik, Gefühl …"></div></div><div class="row" style="margin-top:14px"><button class="btn primary" id="saveTraining">Einheit speichern</button><button class="btn" id="clearTraining">Leeren</button></div></div><div class="section-head"><h2>Einheiten Woche <span id="trainWeekTitle">1</span></h2></div><div class="card table"><table><thead><tr><th>Datum</th><th>Übung</th><th>Sätze × Wdh.</th><th>kg</th><th>RPE</th><th></th></tr></thead><tbody id="trainingRows"></tbody></table></div><div class="section-head"><h2>Fortschritt pro Übung</h2><select id="exerciseChartSelect" class="chart-select"></select></div><div class="card"><svg id="exerciseChart" class="chart" viewBox="0 0 900 240" preserveAspectRatio="none"></svg></div><div class="section-head"><h2>Volumen pro Woche</h2></div><div class="card"><svg id="volumeChart" class="chart" viewBox="0 0 900 240" preserveAspectRatio="none"></svg></div><div class="section-head"><h2>Fußübungen</h2><span class="pill">Einlagen links</span></div><div class="card"><div class="fields"><div class="field"><label>Fußübung ergänzen</label><input id="footName" placeholder="z. B. Zehen spreizen"></div><div class="field"><label>Notiz</label><input id="footNote" placeholder="2 × 60 Sekunden"></div><div class="field"><label>Datum</label><input id="footDate" type="date"></div><div class="field"><label>&nbsp;</label><button class="btn primary" id="addFoot">Fußübung speichern</button></div></div><div id="footRows" style="margin-top:14px"></div></div></section>
+<section id="nutrition" class="view"><div class="section-head"><h2>Ernährung</h2><span class="pill" id="calTarget">1.800 kcal · 137 g Protein</span></div><div class="days" id="mealDays"></div><div class="toolbar"><button class="btn soft" id="extraBtn">+ Extra gegessen</button><span class="muted" id="mealSummary"></span></div><div class="meal-grid" id="mealList"></div><div class="section-head"><h2>Wasser</h2></div><div class="card"><div class="row"><b id="waterText">0 / 8 Gläser</b><button class="btn" id="waterMinus">−</button><button class="btn primary" id="waterPlus">+ Glas</button></div></div></section>
+<section id="supplements" class="view"><div class="section-head"><h2>Supplemente</h2><button class="btn soft" id="addSupp">+ Supplement</button></div><div class="supp-grid cards" id="suppList"></div><div class="section-head"><h2>Compliance</h2></div><div class="card"><svg id="suppChart" class="chart" viewBox="0 0 900 220" preserveAspectRatio="none"></svg></div></section>
+<section id="tracking" class="view"><div class="section-head"><h2>Messungen</h2><span class="pill">Datum: <span id="trackDateLabel"></span></span></div><div class="card"><div class="fields"><div class="field"><label>Datum</label><input id="mDate" type="date"></div><div class="field"><label>Gewicht kg</label><input id="mWeight" type="number" step="0.1"></div><div class="field"><label>Bauch cm</label><input id="mWaist" type="number" step="0.1"></div><div class="field"><label>Hüfte cm</label><input id="mHip" type="number" step="0.1"></div><div class="field"><label>Schlaf h</label><input id="mSleep" type="number" step="0.1"></div><div class="field"><label>Schritte</label><input id="mSteps" type="number"></div><div class="field"><label>Energie 1–5</label><input id="mEnergy" type="number" min="1" max="5"></div><div class="field"><label>Stimmung 1–5</label><input id="mMood" type="number" min="1" max="5"></div></div><div class="row" style="margin-top:14px"><button class="btn primary" id="addMeasurement">Messung speichern</button><button class="btn" id="csvMeasurements">CSV Messungen</button><button class="btn" id="csvTraining">CSV Training</button></div></div><div class="section-head"><h2>Verlauf & Wochenvergleich</h2></div><div class="card"><svg id="measureChart" class="chart" viewBox="0 0 900 280" preserveAspectRatio="none"></svg><div class="row" style="margin-top:12px"><span class="pill" id="weekCompare">Noch kein Wochenvergleich</span><span class="pill" id="whtrZone">WHtR-Zone: –</span><span class="pill" id="rollingAvg">7-Tage-Schnitt: –</span></div></div><div class="card table" style="margin-top:12px"><table><thead><tr><th>Datum</th><th>Gewicht</th><th>Bauch</th><th>Schlaf</th><th>Schritte</th><th>Aktion</th></tr></thead><tbody id="measurementRows"></tbody></table></div></section>
+<section id="review" class="view"><div class="section-head"><h2>Wochenreview</h2><span class="pill">Reflexion statt Perfektion</span></div><div class="card"><div class="fields"><div class="field full"><label>Was lief diese Woche gut?</label><textarea id="rGood"></textarea></div><div class="field full"><label>Was darf nächste Woche leichter werden?</label><textarea id="rEasy"></textarea></div><div class="field full"><label>Ein konkreter Fokus</label><textarea id="rFocus"></textarea></div></div><button class="btn primary" id="saveReview" style="margin-top:12px">Review speichern</button></div><div class="section-head"><h2>Vergangene Reviews</h2></div><div id="reviewList" class="cards"></div></section>
+<section id="tips" class="view"><div class="section-head"><h2>Tipps, die tragen</h2></div><div class="cards"><div class="card"><b>Defizit, nicht Verzicht</b><p class="muted">Der 1.800-kcal-Plan ist ein Startpunkt. Entscheidend ist der Verlauf über mehrere Wochen.</p></div><div class="card"><b>Pflanzliches Protein</b><p class="muted">Tofu, Hülsenfrüchte, Sojajoghurt und Proteinpulver über den Tag verteilen.</p></div><div class="card"><b>Fußfreundlich bewegen</b><p class="muted">Einlagen konsequent testen, Fußübungen ruhig ausführen und bei Schmerzen pausieren.</p></div><div class="card"><b>Schlaf priorisieren</b><p class="muted">Ein regelmäßiger Rhythmus hilft Appetitregulation, Regeneration und Trainingsqualität.</p></div></div><div.<br></div><button class="btn danger" id="resetApp">App-Daten zurücksetzen</button></section>
+
+<section id="exercises" class="view">
+  <div class="section-head">
+    <h2>Übungen & Progression</h2>
+    <span class="pill">Nachschlagewerk</span>
+  </div>
+  <div </div>
+  <div id="exercisesRef"></div>
+</section>
 </main>
-<div class="modal-backdrop" id="importModal" role="presentation"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="importTitle" tabindex="-1"><div class="eyebrow">lokal &amp; geschützt</div><h2 id="importTitle">Import prüfen</h2><p id="importInfo" class="sub"></p><pre id="importPreview" class="import-preview" aria-label="Vorschau der Importdaten"></pre><div class="modal-actions"><button class="btn primary" id="confirmImport" type="button">Importieren &amp; überschreiben</button><button class="btn" id="backupBeforeImport" type="button">Erst Backup speichern</button><button class="btn" id="cancelImport" type="button">Abbrechen</button></div></div></div>
-<div class="modal-backdrop" id="historyModal" role="presentation"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="historyTitle" tabindex="-1"><div class="eyebrow">Wochenarchiv</div><h2 id="historyTitle">Wochenhistorie</h2><p class="sub">Abgeschlossene Wochen bleiben nur auf diesem Gerät gespeichert.</p><div id="historyList"></div><div class="modal-actions"><button class="btn" id="closeHistory" type="button">Schließen</button></div></div></div>
-<div class="modal-backdrop" id="pauseModal" role="presentation"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="pauseTitle" tabindex="-1"><div class="eyebrow">kleiner Zwischenraum</div><h2 id="pauseTitle">Kurze Pause?</h2><p id="pauseIntro" class="sub">Du musst gerade nichts lösen. Wähle eine Sache, die in fünf Minuten passt.</p><div id="actionGrid" class="action-grid"></div><div id="followup" class="feedback" hidden><b>Hat es gutgetan?</b> <button class="btn small" data-feedback="ja">Ja</button> <button class="btn small" data-feedback="teils">Teils</button> <button class="btn small" data-feedback="nein">Nein</button></div><div class="modal-actions"><button class="btn primary" id="doPause" type="button">Mache ich jetzt</button><button class="btn" id="closePause" type="button">Schließen</button><button class="btn" id="dismissPause" type="button">Heute nicht mehr anzeigen</button></div></div></div></div><div class="actions"><button class="btn" id="themeBtn" type="button" aria-pressed="false">☾ Dunkel</button><button class="btn" id="exportBtn">↓ Export</button><button class="btn" id="importBtn">↑ Import</button><button class="btn" id="historyBtn">▣ Historie</button><button class="btn danger" id="resetBtn">Neue Woche</button><input type="file" id="fileInput" accept="application/json" hidden></div>
-<script>'use strict';
-const KEY='wochenreflexion-schulalltag-v1';
-const DAYS=[['mo','Montag','Mo'],['di','Dienstag','Di'],['mi','Mittwoch','Mi'],['do','Donnerstag','Do'],['fr','Freitag','Fr']];
-// Wochenansicht und Auswertung umfassen ausschließlich Montag bis Freitag.
-const ALL_DAYS=DAYS;
-const LOADS=['Lautstärke / Unruhe','Störungen einzelner SuS','Viele Einzelanfragen','Unterrichtsvorbereitung','Korrekturen / Kontrolle','Konferenzen / Meetings','Verwaltung / Dokumentation','Elternkontakte','Vertretungen / Aufsichten','Konflikte im Kollegium / Schulleitung','Zeitdruck / keine Pausen','Arbeit am Abend / Wochenende','Gedanken an Schule in der Freizeit','Körperliche Anspannung','Sonstiges'];
-const GOODS=['Ruhige Arbeitsphase','Gutes Gespräch mit SuS','Unterstützung durch Kollegium','Erfolgserlebnis','Pause genutzt','Pünktlich Feierabend','Erholung / Sport / Hobby','Sonstiges'];
-const LOAD_LEVELS=['gar nicht','kaum','etwas','deutlich','stark','sehr stark'];
-const KEYWORDS={Kollege:/kolleg/i,Admin:/admin|ticket|it-?aufgabe/i,Drucker:/drucker/i,WLAN:/wlan|netzwerk/i,Eltern:/eltern/i,Lautstärke:/laut|lärm|unruhe/i,Müdigkeit:/müde|müdigkeit/i,Schlaf:/schlaf/i,Konferenz:/konferenz|meeting/i,Vertretung:/vertret/i,Korrektur:/korrektur/i};
-const TIP_LIBRARY={
- 'Lautstärke / Unruhe':['In der nächsten lauten Phase eine 90‑Sekunden-Ohrpause einplanen: Tür zu, Wasser, kein Input.','Für einen Übergang nur ein Signal und einen Satz nutzen – nicht gegen die Lautstärke anmoderieren.','Nach der lautesten Stunde zwei Minuten reizarm bleiben, bevor die nächste Anfrage startet.'],
- 'Viele Einzelanfragen':['Eine feste Sprechzeit für Kolleg:innen testen; außerhalb davon Anliegen in eine Sammelliste.','Anfragen mit „heute nötig / diese Woche / kann warten“ sortieren lassen.','Eine kurze Standardantwort für wiederkehrende Fragen vorbereiten und wiederverwenden.'],
- 'Verwaltung / Dokumentation':['Admin-Aufgaben in ein einziges 25‑Minuten-Fenster bündeln statt nebenbei zu reagieren.','Ein Mini-Ticketsystem nutzen: Anliegen, Dringlichkeit, nächster Schritt, Termin.','Nach dem Block den Eingang schließen und nur echte Störungen durchlassen.'],
- 'Gedanken an Schule in der Freizeit':['Ein 3‑Minuten-Abschaltzettel: offen, nächster Schritt, wann wieder dran.','Arbeits- und Freizeitgerät bzw. Benachrichtigungen für ein klares Zeitfenster trennen.','Beim Heimkommen ein festes Übergangsritual nutzen: Schuhe aus, Wasser, kurzer Weg ohne Schulinput.'],
- 'Arbeit am Abend / Wochenende':['Ein „letzter Abschluss“ mit genau einer nächsten Aufgabe und sichtbarem Ende testen.','Korrekturen auf ein Zeitfenster mit Schlussalarm begrenzen – unfertige Reste bewusst notieren.','Ein Abend ohne Schulaufgabe als geschützten Testlauf markieren.'],
- 'Zeitdruck / keine Pausen':['Zwischen zwei Terminen drei Minuten ohne Bildschirm blocken – klein genug, um realistisch zu bleiben.','Für heute eine Sache aktiv „nicht jetzt“ entscheiden und parken.','Den nächsten Arbeitsblock mit einem klaren Endpunkt statt nur mit einer Aufgabe beginnen.'],
- 'Unterrichtsvorbereitung':['Eine Vorbereitungsschleife mit 20‑Minuten-Limit und „ausreichend für morgen“ als Abschluss testen.','Materialien für eine Woche an einem festen Ort sammeln, statt mehrfach zu suchen.','Am Ende nur den nächsten konkreten Handgriff notieren.'],
- 'Konferenzen / Meetings':['Vor dem Meeting eine einzige Frage oder Entscheidung notieren; danach nur den nächsten Schritt festhalten.','Wenn möglich, Benachrichtigungen während des Termins stumm schalten und gesammelt nachsehen.'],
- 'Elternkontakte':['Elternkontakte in ein planbares Zeitfenster bündeln und außerhalb davon mit Rückmeldezeit antworten.','Für wiederkehrende Anliegen eine kurze Textvorlage verwenden.'],
- 'Vertretungen / Aufsichten':['Nach einer Vertretung/Aufsicht einen kurzen Übergang ohne neue Anfrage reservieren.','Vertretungsinfos an einer Stelle sammeln, damit nicht mehrfach gesucht wird.']
-};
-let state=loadState(), active='mo'; const THEME_KEY='wochenreflexion-theme-v1';
-function blank(){return {morning:'',evening:'',sleep:'',burden:'',loads:{},otherLoad:'',hardClass:'',hardHour:'',bestClass:'',bestHour:'',goods:[],otherGood:'',drain:'',source:'',change:'',dayPlan:'',experiments:{},selfCare:[],acuteDismissed:{}}}
-function dateMonday(){let d=new Date(),day=d.getDay(),diff=day===0?-6:1-day;d.setDate(d.getDate()+diff);let y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),dayPart=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${dayPart}`}
-function validMonday(value){if(typeof value!=='string'||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(value))return dateMonday();let d=new Date(value+'T12:00:00');if(Number.isNaN(d.getTime()))return dateMonday();let day=d.getDay();if(day!==1)return dateMonday();return value}
-function normalizeLoadValue(v){if(v&&typeof v==='object'){if('value'in v)v=v.value;else if('level'in v)v=v.level;else if('intensity'in v)v=v.intensity;else if('checked'in v&&!v.checked)return null}if(typeof v==='string'){let t=v.trim().toLowerCase(),map={gering:1,mittel:3,hoch:5,'gar nicht':0,kaum:1,etwas:2,deutlich:3,stark:4,'sehr stark':5};if(map[t]!==undefined)v=map[t]}v=Number(v);return Number.isFinite(v)?Math.max(0,Math.min(5,Math.round(v))):null}
-function migrateState(raw){try{if(!raw||typeof raw!=='object'||!raw.days||typeof raw.days!=='object')return null;let out={start:validMonday(raw.start),scaleVersion:2,days:{},experiments:raw.experiments&&typeof raw.experiments==='object'?raw.experiments:{},history:Array.isArray(raw.history)?raw.history.filter(h=>h&&typeof h==='object'&&h.start&&h.days).slice(-52):[],previousWeek:raw.previousWeek&&typeof raw.previousWeek==='object'?raw.previousWeek:null};ALL_DAYS.forEach(([key])=>{let old=raw.days[key];if(!old||typeof old!=='object')old={};let d=Object.assign(blank(),old);d.loads={};if(old.loads&&typeof old.loads==='object')Object.entries(old.loads).forEach(([i,v])=>{let n=normalizeLoadValue(v);if(n!==null&&Number(i)>=0&&Number(i)<LOADS.length)d.loads[String(Number(i))]=n});d.goods=Array.isArray(d.goods)?d.goods.map(Number).filter(i=>Number.isInteger(i)&&i>=0&&i<GOODS.length):[];['morning','evening','sleep','burden','otherLoad','hardClass','hardHour','bestClass','bestHour','otherGood','drain','source','change','dayPlan'].forEach(k=>d[k]=d[k]==null?'':String(d[k]));d.experiments=d.experiments&&typeof d.experiments==='object'?d.experiments:{};d.selfCare=Array.isArray(old.selfCare)?old.selfCare.filter(a=>a&&typeof a==='object'&&a.id):[];d.acuteDismissed=old.acuteDismissed&&typeof old.acuteDismissed==='object'?old.acuteDismissed:{};out.days[key]=d});return out}catch(e){console.warn('Migration fehlgeschlagen',e);return null}}
-function loadState(){try{let x=migrateState(JSON.parse(localStorage.getItem(KEY)||'null'));if(x){try{localStorage.setItem(KEY,JSON.stringify(x))}catch(_){ }return x}}catch(e){console.warn('Lokale Daten konnten nicht gelesen werden',e)}return {start:dateMonday(),scaleVersion:2,days:Object.fromEntries(ALL_DAYS.map(d=>[d[0],blank()])),experiments:{}}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state));let el=document.getElementById('storageStatus');if(el){el.textContent='✓ Lokal gespeichert';el.className='storage-status'}}catch(e){console.warn('Speichern nicht möglich; Ansicht bleibt aktiv',e);let el=document.getElementById('storageStatus');if(el){el.textContent='Speichern nicht möglich: Der Browser blockiert lokalen Speicher. Exportiere zur Sicherung.';el.className='storage-status error'}}updateTabs()}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function applyTheme(theme){document.documentElement.dataset.theme=theme;let b=document.getElementById('themeBtn');if(b){b.textContent=theme==='dark'?'☀ Hell':'☾ Dunkel';b.setAttribute('aria-pressed',theme==='dark')}}
-function complete(x){return [x.morning,x.evening,x.sleep,x.burden,x.hardClass,x.bestClass,x.drain,x.source,x.change,x.dayPlan,x.otherLoad,x.otherGood].some(Boolean)||Object.keys(x.loads||{}).length||(x.goods||[]).length}
-function renderTabs(){document.getElementById('tabs').innerHTML=DAYS.map(d=>`<button class="tab" data-day="${d[0]}"><strong>${d[2]}</strong><small>${d[1]} <span class="checkmark" id="mark-${d[0]}"></span></small></button>`).join('');document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showDay(b.dataset.day));updateTabs()}
-function updateTabs(){DAYS.forEach(d=>{let b=document.querySelector(`[data-day="${d[0]}"]`);if(b)b.classList.toggle('active',active===d[0]);let m=document.getElementById('mark-'+d[0]);if(m)m.textContent=complete(state.days[d[0]])?'✓':''})}
-function radio(name,val){return `<div class="scale" role="radiogroup">${['1','2','3','4','5'].map((l,i)=>`<span><input type="radio" id="${name}-${i+1}" name="${name}" value="${i+1}" ${String(val)===String(i+1)?'checked':''}><label for="${name}-${i+1}">${l}</label></span>`).join('')}</div>`}
-function renderDay(key){let x=state.days[key]||blank(),day=DAYS.find(d=>d[0]===key)||DAYS[0];return `<div class="day-view" data-view="${key}"><div class="card"><div class="eyebrow">${day[1]} · kurzer Check-in</div><h2>Wie war dein Tag?</h2><p class="sub">Skala 1–5: 1 = sehr niedrig / kaum · 5 = sehr hoch / sehr gut</p><div class="scale-row"><div class="scale-item"><label>Energie morgens</label>${radio(key+'-morning',x.morning)}</div><div class="scale-item"><label>Energie abends</label>${radio(key+'-evening',x.evening)}</div><div class="scale-item"><label>Schlafqualität</label>${radio(key+'-sleep',x.sleep)}</div><div class="scale-item"><label>Gesamtbelastung</label>${radio(key+'-burden',x.burden)}</div></div></div><div class="grid"><div class="card"><h3>Was hat belastet?</h3><p class="sub">Stufe 0–5: 0 = gar nicht · 1 = kaum · 2 = etwas · 3 = deutlich · 4 = stark · 5 = sehr stark. Erneutes Tippen auf die gewählte Stufe setzt sie zurück.</p><div class="load-list">${LOADS.map((n,i)=>{let value=normalizeLoadValue(x.loads[i]),selected=value!==null;return `<div class="load-row" data-load-row="${i}"><div class="load-name"><span>${n}</span><span class="load-level" data-load-level>${selected?LOAD_LEVELS[value]+' · Stufe '+value:''}</span></div><div class="intensity" role="group" aria-label="Intensität: ${n}">${LOAD_LEVELS.map((label,j)=>`<button type="button" class="intensity-btn${selected&&value===j?' selected':''}" data-load-value="${j}" style="--intensity-color:${j<2?'#3f8768':j<4?'#c47b16':'#b94a3d'}" aria-pressed="${selected&&value===j}">${j}</button>`).join('')}</div>${i===LOADS.length-1?`<input class="other-input" data-field="otherLoad" value="${esc(x.otherLoad)}" placeholder="Was sonst belastet hat …">`:''}</div>`}).join('')}</div></div><div class="card half"><h3>Stunden-Log</h3><p class="sub">Ein kurzer Blick auf die markantesten Stunden.</p><div class="field-grid"><div class="field full"><label>Anstrengendste Stunde / Klasse</label><input data-field="hardClass" value="${esc(x.hardClass)}" placeholder="z. B. 7b – Mathe"></div><div class="field"><label>Stunde</label><select data-field="hardHour"><option value="">—</option>${Array.from({length:10},(_,i)=>`<option value="${i+1}" ${String(x.hardHour)===String(i+1)?'selected':''}>${i+1}</option>`).join('')}</select></div><div class="field full"><label>Beste Stunde / Klasse</label><input data-field="bestClass" value="${esc(x.bestClass)}" placeholder="z. B. 10a – Gespräch"></div><div class="field"><label>Stunde</label><select data-field="bestHour"><option value="">—</option>${Array.from({length:10},(_,i)=>`<option value="${i+1}" ${String(x.bestHour)===String(i+1)?'selected':''}>${i+1}</option>`).join('')}</select></div></div></div><div class="card half"><h3>Was lief gut?</h3><div class="good-list">${GOODS.map((n,i)=>`<label class="good"><input type="checkbox" data-good="${i}" ${x.goods.includes(i)?'checked':''}><span>${n}</span></label>`).join('')}</div><div class="field" style="margin-top:12px"><input data-field="otherGood" value="${esc(x.otherGood)}" placeholder="Sonstiges …"></div></div><div class="card"><h3>Freier Tagesblick</h3><div class="field-grid"><div class="field full"><label>Tagesplan / Sonstiges</label><textarea data-field="dayPlan" placeholder="Was stand an, was blieb offen, was war sonst wichtig?">${esc(x.dayPlan)}</textarea></div><div class="field"><label>Energiefresser des Tages</label><textarea data-field="drain" placeholder="Was hat heute besonders gezogen?">${esc(x.drain)}</textarea></div><div class="field"><label>Kraftquelle des Tages</label><textarea data-field="source" placeholder="Was hat dich getragen?">${esc(x.source)}</textarea></div><div class="field full"><label>Eine Sache, die ich ändern könnte</label><textarea data-field="change" placeholder="Klein und konkret …">${esc(x.change)}</textarea></div></div><p class="day-prompt" data-day-prompt></p><button type="button" class="btn pause-btn" data-day="${key}">☕ Kurze Pause?</button><div class="save-note">✓ Änderungen werden automatisch gespeichert</div></div></div></div>`}
-function dayPrompt(x){if(!complete(x))return '';let b=Number(x.burden),e=Number(x.evening);if(b>=4&&e<=2)return 'Mini-Impuls: Heute nur einen nächsten Schritt notieren – dann bewusst aus dem Arbeitsmodus aussteigen.';if((x.loads&&x.loads[0]>=3)||/laut|lärm/i.test((x.drain||'')+' '+(x.dayPlan||'')))return 'Mini-Impuls: Nach dem Lärm 90 Sekunden ohne neuen Input einplanen.';if(/admin|drucker|wlan|kolleg/i.test((x.dayPlan||'')+' '+(x.drain||'')))return 'Mini-Impuls: Admin-Anliegen sammeln und zu einem festen Block bündeln.';if(e>=4)return 'Mini-Impuls: Notiere kurz, was heute getragen hat – das darf nächste Woche wieder Platz bekommen.';return 'Mini-Impuls: Ein kleiner Abschluss reicht: Was ist der nächste Schritt, und wann ist Schluss?'}
-function renderDays(){try{document.getElementById('days').innerHTML=DAYS.map(d=>renderDay(d[0])).join('');bindDay();showDay(active)}catch(e){console.error('Renderfehler',e);document.getElementById('days').innerHTML='<div class="card"><h2>Die Tagesansicht konnte nicht vollständig dargestellt werden.</h2><p>Gespeicherte Daten bleiben erhalten. Bitte lade die Seite neu.</p></div>'}}
-function bindDay(){document.querySelectorAll('.day-view').forEach(view=>{let key=view.dataset.view,x=state.days[key];view.querySelectorAll('input[type=radio]').forEach(el=>el.onchange=()=>{let field=el.name.split('-').pop();if(['morning','evening','sleep','burden'].includes(field)){x[field]=el.value;save();updatePrompt(view,x);maybePause(key)}});view.querySelectorAll('.intensity-btn').forEach(btn=>btn.onclick=()=>{let row=btn.closest('.load-row'),i=row.dataset.loadRow,v=Number(btn.dataset.loadValue),old=normalizeLoadValue(x.loads[i]);if(old===v)delete x.loads[i];else x.loads[i]=v;let now=normalizeLoadValue(x.loads[i]);row.querySelectorAll('.intensity-btn').forEach(b=>{let on=now!==null&&Number(b.dataset.loadValue)===now;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',String(on))});row.querySelector('[data-load-level]').textContent=now===null?'Keine Stufe ausgewählt':LOAD_LEVELS[now]+' · Stufe '+now;save();updatePrompt(view,x);maybePause(key)});view.querySelectorAll('[data-field]').forEach(el=>el.oninput=()=>{x[el.dataset.field]=el.value;save();updatePrompt(view,x)});view.querySelectorAll('[data-good]').forEach(el=>el.onchange=()=>{let i=Number(el.dataset.good);x.goods=el.checked?[...new Set([...x.goods,i])]:x.goods.filter(v=>v!==i);save();updatePrompt(view,x)})});document.querySelectorAll('.pause-btn').forEach(b=>b.onclick=()=>openPause(b.dataset.day,false))}
-function updatePrompt(view,x){let p=view.querySelector('[data-day-prompt]');if(p)p.textContent=dayPrompt(x)}
-function showDay(k){active=k;document.querySelectorAll('.day-view').forEach(v=>v.classList.toggle('hidden',v.dataset.view!==k));document.getElementById('summary').classList.remove('visible');document.getElementById('days').style.display='block';document.getElementById('tabs').style.display='flex';updateTabs()}
-function entries(){return ALL_DAYS.map(d=>({...d,x:state.days[d[0]]||blank()})).filter(d=>complete(d.x))}
-function avg(field,subset=entries()){let a=subset.map(d=>Number(d.x[field])).filter(Number.isFinite);return a.length?(a.reduce((s,n)=>s+n,0)/a.length).toFixed(1):'—'}
-function keywordCounts(){let out={};entries().forEach(d=>{let text=[d.x.dayPlan,d.x.otherLoad,d.x.otherGood,d.x.drain,d.x.source,d.x.change].join(' ');Object.entries(KEYWORDS).forEach(([k,re])=>{let hits=text.match(re);if(hits)out[k]=(out[k]||0)+hits.length})});return out}
-function trend(field){let cur=Number(avg(field));let prev=state.previousWeek&&state.previousWeek[field]!=null?Number(state.previousWeek[field]):null;return Number.isFinite(cur)&&Number.isFinite(prev)?(cur-prev>0.15?'↑':cur-prev<-0.15?'↓':'→'):'—'}
-function insights(){let es=entries(), tips=[];let sums={};es.forEach(d=>Object.entries(d.x.loads||{}).forEach(([i,v])=>sums[i]=(sums[i]||0)+Number(v)));Object.entries(sums).sort((a,b)=>b[1]-a[1]).slice(0,4).forEach(([i])=>{let name=LOADS[i],pool=TIP_LIBRARY[name]||['Eine kleine Grenze für diese Belastung testen: Was wird gebündelt, was darf warten?','Den nächsten Schritt sichtbar notieren und einen realistischen Endpunkt setzen.'];let offset=(state.start.length+Number(i))%pool.length;tips.push({title:name,text:pool.slice(0,Math.min(3,pool.length)).map((_,j)=>pool[(offset+j)%pool.length])})});let kws=keywordCounts();if(kws.Admin||kws.Drucker||kws.WLAN)tips.push({title:'Freitext · Admin',text:['Admin-Anliegen in Tickets sammeln, Dringlichkeit sichtbar machen und zu einer Sprechzeit bündeln.','Mit der Schulleitung die reale Admin-Zeit und die nur zwei Entlastungsstunden anhand der Liste besprechen.']});let hard=es.filter(d=>Number(d.x.burden)>=4).sort((a,b)=>Number(b.x.burden)-Number(a.x.burden))[0];if(hard)tips.push({title:'Schwerster Tag',text:[`${hard[1]} war mit Belastung ${hard.x.burden} am schwersten – plane danach einen reizarmen Übergang ein.`]});let evening=es.filter(d=>Number(d.x.evening)<=2&&Number(d.x.burden)>=4);if(evening.length)tips.push({title:'Belastung + Energie',text:['Hohe Belastung und niedrige Abendenergie tauchen gemeinsam auf – ein früher Abschluss- oder Pausenanker könnte entlasten.']});let thought=es.filter(d=>/gedanken an schule|schule.*freizeit/i.test((d.x.dayPlan||'')+' '+(d.x.drain||''))),sleep=es.filter(d=>Number(d.x.sleep)<=2);if(thought.length&&sleep.length)tips.push({title:'Gedanken + Schlaf',text:['Gedanken an Schule und schwacher Schlaf erscheinen in derselben Woche – ein 3‑Minuten-Abschaltzettel kann den Übergang markieren.']});let high=es.filter(d=>Number(d.x.evening)>=4);let good={};high.forEach(d=>(d.x.goods||[]).forEach(i=>good[i]=(good[i]||0)+1));let best=Object.entries(good).sort((a,b)=>b[1]-a[1])[0];if(best)tips.push({title:'Das hilft dir',text:[`${GOODS[best[0]]} taucht an Tagen mit höherer Abendenergie auf – davon nächste Woche eine kleine Dosis bewusst einplanen.`]});let care=es.flatMap(d=>(d.x.selfCare||[]).map(a=>({...a,evening:Number(d.x.evening)})));if(care.length){let withCare=care.filter(a=>a.evening>=4).length;tips.push({title:'Selbstfürsorge im Alltag',text:[`${withCare} von ${care.length} protokollierten Aktionen lagen an Tagen mit Abendenergie 4 oder 5. Das ist ein Hinweis, keine Bewertung – was davon war leicht genug, um es wieder zu nutzen?`]})}return tips}
-function experiments(tips){let choices=tips.slice(0,3).map((t,i)=>({id:'exp-'+i,title:t.title,action:t.text[0]}));let saved=state.experiments||{};return `<div class="experiment-list">${choices.map(e=>`<label class="experiment"><input type="checkbox" data-experiment="${e.id}" ${saved[e.id]?.chosen?'checked':''}><span><b>${esc(e.title)}</b><br>${esc(e.action)}</span></label>`).join('')||'<p class="sub">Mit ein paar Einträgen erscheinen hier kleine Experimente für nächste Woche.</p>'}</div>`}
-function summary(){try{document.getElementById('days').style.display='none';document.getElementById('tabs').style.display='none';document.getElementById('summary').classList.add('visible');let es=entries();document.getElementById('summaryIntro').textContent=`${es.length} von 5 Tagen haben Einträge.`;document.getElementById('metrics').innerHTML=[['Ø Energie abends',avg('evening')+' '+trend('evening')],['Ø Belastung',avg('burden')+' '+trend('burden')],['Ø Schlafqualität',avg('sleep')],['Tage mit Eintrag',es.length+'/5']].map(a=>`<div class="metric"><b>${a[1]}</b><span>${a[0]}</span></div>`).join('');let loads={};es.forEach(d=>Object.entries(d.x.loads||{}).forEach(([i,v])=>loads[i]=(loads[i]||0)+Number(v)));let top=Object.entries(loads).sort((a,b)=>b[1]-a[1]).slice(0,8),max=top[0]?.[1]||1;document.getElementById('loadBars').innerHTML=top.length?top.map(([i,v])=>`<div class="bar-row"><span>${esc(LOADS[i])}</span><div class="bar"><i style="width:${v/max*100}%"></i></div><b>${v}</b></div>`).join(''):'<p class="sub">Noch keine Belastungen markiert.</p>';let goods={};es.forEach(d=>(d.x.goods||[]).forEach(i=>goods[i]=(goods[i]||0)+1));let gp=Object.entries(goods).sort((a,b)=>b[1]-a[1]).slice(0,8),gm=gp[0]?.[1]||1;document.getElementById('goodBars').innerHTML=gp.length?gp.map(([i,v])=>`<div class="bar-row pos"><span>${esc(GOODS[i])}</span><div class="bar"><i style="width:${v/gm*100}%"></i></div><b>${v}×</b></div>`).join(''):'<p class="sub">Noch keine positiven Punkte markiert.</p>';let care=es.flatMap(d=>(d.x.selfCare||[]).map(a=>({...a,day:d[1],evening:Number(d.x.evening)})));document.getElementById('careSummary').innerHTML=care.length?care.map(a=>`<p>✓ ${esc(SELFCARE[a.id]?.[0]||a.id)} <span class="sub">(${a.day}${a.feedback?' · '+a.feedback:''})</span></p>`).join(''):'<p class="sub">Noch keine Aktion protokolliert.</p>';let it=insights();document.getElementById('insights').innerHTML=it.length?it.map(t=>`<div class="insight"><b>${esc(t.title)}</b><ul>${t.text.map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div>`).join(''):'<p class="sub">Noch keine Muster – ein paar Einträge genügen, dann wird es konkreter.</p>';document.getElementById('experiments').innerHTML=experiments(it);document.querySelectorAll('[data-experiment]').forEach(el=>el.onchange=()=>{let id=el.dataset.experiment;state.experiments[id]={chosen:el.checked,status:state.experiments[id]?.status||''};save()});renderOtherSummary();drawChart()}catch(e){console.error('Auswertung fehlgeschlagen',e);document.getElementById('summaryIntro').textContent='Die Auswertung konnte nicht vollständig berechnet werden. Deine Einträge bleiben erhalten.'}}
-function renderOtherSummary(){let out=entries().map(d=>{let x=d.x,parts=[];if(x.dayPlan)parts.push('Tagesplan / Sonstiges: '+x.dayPlan);if(x.otherLoad)parts.push('Sonstige Belastung: '+x.otherLoad);if(x.otherGood)parts.push('Sonstiges gut: '+x.otherGood);return parts.length?`<p><b>${d[1]}:</b> ${esc(parts.join(' · '))}</p>`:''}).filter(Boolean).join('');document.getElementById('otherSummary').innerHTML=out||'<p class="sub">Keine freien Sonstiges-Texte eingetragen.</p>'}
-function drawChart(){let svg=document.getElementById('chart'),step=630/Math.max(1,ALL_DAYS.length-1),vals=ALL_DAYS.map(d=>{let n=Number(state.days[d[0]].evening);return Number.isFinite(n)&&n>0?n:null}),present=vals.map((v,i)=>v===null?null:[i,v]).filter(Boolean),pts=present.map(([i,v])=>`${45+i*step},${165-(v-1)/4*125}`).join(' ');svg.innerHTML=`<line x1="40" y1="40" x2="40" y2="165" stroke="var(--line)"/><line x1="40" y1="165" x2="670" y2="165" stroke="var(--line)"/>${[1,2,3,4,5].map(v=>`<text x="18" y="${169-(v-1)*31.25}">${v}</text>`).join('')}<polyline points="${pts}" fill="none" stroke="var(--deep)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${present.map(([i,v])=>`<circle cx="${45+i*step}" cy="${165-(v-1)/4*125}" r="6" fill="var(--coral)"/>`).join('')}${ALL_DAYS.map((d,i)=>`<text x="${45+i*step}" y="184">${d[2]}</text>`).join('')}`}
-const SELFCARE={
-  wasser:['Ein Glas Wasser holen','Körper kurz versorgen und Schulmodus für einen Moment unterbrechen.'],
-  atem:['6 ruhige Atemzüge','Ausatmen etwas länger als einatmen; keine Leistung daraus machen.'],
-  gang:['90 Sekunden Gang','Kurz den Raum wechseln oder ans Fenster gehen – ohne neuen Input.'],
-  parken:['Eine Sache parken','Offen, nächster Schritt, späterer Zeitpunkt – dann den Zettel schließen.']
-};
-const PAUSE_ACTIONS=[['wasser','💧 Wasser holen'],['atem','🌬️ Sechs ruhige Atemzüge'],['gang','🚶 90 Sekunden ohne Input'],['parken','📝 Eine Sache für später parken']];
-function todayKey(){let d=new Date(),day=d.getDay();return ['mo','mo','di','mi','do','fr','mo'][day]||'mo'}
-function highLoadCount(x){let values=Object.values(x.loads||{}).map(normalizeLoadValue).filter(v=>v!==null);return {count:values.filter(v=>v>=2).length,hasVeryHigh:values.some(v=>v>=4)}}
-function openPause(key,acute){let modal=document.getElementById('pauseModal');if(!modal)return;let x=state.days[key]||blank();modal.dataset.day=key;document.getElementById('actionGrid').innerHTML=PAUSE_ACTIONS.map(([id,label])=>`<button type="button" class="selfcare-card" data-care="${id}"><b>${label}</b><br><span class="sub">${SELFCARE[id][1]}</span></button>`).join('');document.getElementById('followup').hidden=true;modal.classList.add('open');modal.querySelector('.modal').focus();modal.querySelectorAll('[data-care]').forEach(b=>b.onclick=()=>{x.selfCare=Array.isArray(x.selfCare)?x.selfCare:[];x.selfCare.push({id:b.dataset.care,at:new Date().toISOString(),feedback:''});b.classList.add('done');document.getElementById('followup').hidden=false;save()})}
-function closePause(){document.getElementById('pauseModal')?.classList.remove('open')}
-function maybePause(key){let x=state.days[key]||blank(),load=highLoadCount(x),trigger=(load.count>=3&&load.hasVeryHigh)||load.count>=4;if(trigger&&!x.acuteDismissed?.[state.start])openPause(key,true)}
-function bindPause(){let modal=document.getElementById('pauseModal');if(!modal)return;document.getElementById('doPause').onclick=()=>{let first=modal.querySelector('[data-care]');if(first)first.click()};document.getElementById('closePause').onclick=closePause;document.getElementById('dismissPause').onclick=()=>{let k=modal.dataset.day||active,x=state.days[k]||blank();x.acuteDismissed=x.acuteDismissed||{};x.acuteDismissed[state.start]=true;save();closePause()};modal.addEventListener('click',e=>{if(e.target===modal)closePause()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePause()});modal.querySelectorAll('[data-feedback]').forEach(b=>b.onclick=()=>{let k=modal.dataset.day||active,x=state.days[k]||blank(),last=x.selfCare?.[x.selfCare.length-1];if(last)last.feedback=b.dataset.feedback;save();document.getElementById('followup').hidden=true})}
-function report(){let lines=['WOCHENREFLEXION SCHULALLTAG',`Woche ab: ${state.start}`,''];entries().forEach(d=>{let x=d.x,ls=Object.entries(x.loads||{}).map(([i,v])=>`${LOADS[i]} (${LOAD_LEVELS[Number(v)]||'Stufe '+v}, Stufe ${v})`),gs=(x.goods||[]).map(i=>GOODS[i]);lines.push(`${d[1]}: Energie ${x.morning||'—'}→${x.evening||'—'}, Schlaf ${x.sleep||'—'}, Belastung ${x.burden||'—'}.`);if(ls.length)lines.push(' Belastungen: '+ls.join(', ')+'.');if(gs.length)lines.push(' Gut lief: '+gs.join(', ')+'.');if(x.dayPlan)lines.push(' Tagesplan / Sonstiges: '+x.dayPlan);if(x.otherLoad)lines.push(' Sonstige Belastung: '+x.otherLoad);if(x.otherGood)lines.push(' Sonstiges gut: '+x.otherGood);if(x.hardClass)lines.push(` Anstrengendste Stunde: ${x.hardClass}${x.hardHour?' (Stunde '+x.hardHour+')':''}.`);if(x.bestClass)lines.push(` Beste Stunde: ${x.bestClass}${x.bestHour?' (Stunde '+x.bestHour+')':''}.`);if(x.drain)lines.push(' Energiefresser: '+x.drain);if(x.source)lines.push(' Kraftquelle: '+x.source);if(x.change)lines.push(' Ändern: '+x.change);if(x.selfCare?.length)lines.push(' Selbstfürsorge: '+x.selfCare.map(a=>SELFCARE[a.id]?.[0]||a.id).join(', ')+'.');lines.push('')});lines.push(`AUSWERTUNG: Ø Energie abends ${avg('evening')}, Ø Belastung ${avg('burden')}, Ø Schlafqualität ${avg('sleep')}.`);return lines.join('\n')}
-function copyReport(){let text=report();try{navigator.clipboard?.writeText(text).then(()=>alert('Zusammenfassung kopiert.')).catch(()=>fallback(text))}catch(_){fallback(text)}}function fallback(text){let f=document.getElementById('fallback');f.value=text;f.style.display='block';f.select();try{document.execCommand('copy')}catch(_){}alert('Zusammenfassung steht im Textfeld bereit.')}
-function showFatal(e){console.error('Initialisierung fehlgeschlagen',e);let el=document.getElementById('fatalError');if(!el){el=document.createElement('div');el.id='fatalError';el.className='notice';document.querySelector('main')?.prepend(el)}el.textContent=''}
-(function init(){try{bindPause();let theme='light';try{theme=localStorage.getItem(THEME_KEY)==='dark'?'dark':'light'}catch(_){}applyTheme(theme);let date=document.getElementById('weekStart');if(date){state.start=validMonday(state.start);date.value=state.start;date.onchange=e=>{let next=validMonday(e.target.value);state.start=next;e.target.value=next;save()}};renderTabs();renderDays();document.getElementById('summaryBtn').onclick=summary;document.getElementById('backBtn').onclick=()=>showDay(active);document.getElementById('copyBtn').onclick=copyReport;document.getElementById('themeBtn').onclick=()=>{let n=document.documentElement.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem(THEME_KEY,n)}catch(_){}applyTheme(n)};document.getElementById('exportBtn').onclick=()=>{try{let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='wochenreflexion-'+state.start+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}catch(e){alert('Export ist gerade nicht möglich.')}};document.getElementById('importBtn').onclick=()=>document.getElementById('fileInput').click();document.getElementById('fileInput').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=migrateState(JSON.parse(r.result));if(!x)throw Error();state=x;save();date.value=state.start;renderTabs();renderDays();alert('Import erfolgreich.')}catch(_){alert('Die Datei konnte nicht gelesen werden.')}};r.readAsText(f)};document.getElementById('resetBtn').onclick=()=>{if(confirm('Wirklich eine neue Woche beginnen? Die aktuellen lokalen Daten werden ersetzt.')){state={start:dateMonday(),scaleVersion:2,days:Object.fromEntries(ALL_DAYS.map(d=>[d[0],blank()])),experiments:{}};try{localStorage.removeItem(KEY)}catch(_){}date.value=state.start;renderTabs();renderDays()}}}catch(e){showFatal(e)}})();
-
-/* Ergänzungen: Schutz, Kurzmodus, vollständige CSVs, vorsichtige Musterhinweise */
-(function(){
-  const oldUpdateTabs=updateTabs;
-  updateTabs=function(){oldUpdateTabs();const n=document.getElementById('progressNote');if(n){const done=DAYS.filter(d=>complete(state.days[d[0]])).length;n.textContent=`Fortschritt: ${done}/5 Tage begonnen · ${5-done} ${5-done===1?'Tag fehlt':'Tage fehlen'}. Ein Tag ist vollständig, wenn Energie, Schlaf und Belastung erfasst sind.`} };
-  const oldComplete=complete;
-  complete=function(x){return oldComplete(x)};
-  function fullComplete(x){return [x.morning,x.evening,x.sleep,x.burden].every(Boolean)}
-  function applyShort(on){document.body.classList.toggle('short-mode',on);try{localStorage.setItem('wochenreflexion-shortmode',on?'1':'0')}catch(_){} }
-  function download(content,type,name){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-  function csv(kind){const rows=[['Tag','Energie morgens','Energie abends','Schlaf','Belastung','Belastungen','Was lief gut']];ALL_DAYS.forEach(d=>{const x=state.days[d[0]]||blank();const base=[d[1],x.morning,x.evening,x.sleep,x.burden,Object.entries(x.loads||{}).map(([i,v])=>LOADS[i]+' ('+v+')').join('; '),(x.goods||[]).map(i=>GOODS[i]).join('; ')];if(kind==='full')base.push(x.otherLoad,x.otherGood,x.hardClass,x.hardHour,x.bestClass,x.bestHour,x.dayPlan,x.drain,x.source,x.change);rows[0]=kind==='full'?['Tag','Energie morgens','Energie abends','Schlaf','Belastung','Belastungen','Was lief gut','Sonstige Belastung','Sonstiges gut','Anstrengendste Stunde','Stunde','Beste Stunde','Stunde','Tagesplan / Sonstiges','Energiefresser','Kraftquelle','Ändern']:rows[0];rows.push(base)});const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';download('\ufeff'+rows.map(r=>r.map(q).join(';')).join('\r\n'),'text/csv;charset=utf-8','wochenreflexion-'+state.start+'-'+kind+'.csv')}
-  function wireEnhancements(){
-    const sm=document.getElementById('shortMode');if(sm){let on=false;try{on=localStorage.getItem('wochenreflexion-shortmode')==='1'}catch(_){}sm.checked=on;applyShort(on);sm.onchange=()=>applyShort(sm.checked)}
-    document.getElementById('summaryBtn')?.addEventListener('click',()=>summary());
-    document.getElementById('csvFullBtn')?.addEventListener('click',()=>csv('full'));document.getElementById('csvLeanBtn')?.addEventListener('click',()=>csv('lean'));
-    document.getElementById('backupBeforeImport')?.addEventListener('click',()=>{exportFile('json');setStatus('Backup gespeichert. Du kannst den Import jetzt bewusst bestätigen.',false)});
-  }
-  const oldSummary=summary; summary=function(){oldSummary();const es=entries(),missing=DAYS.filter(d=>!fullComplete(state.days[d[0]])).map(d=>d[1]);const el=document.getElementById('summaryProgress');if(el)el.textContent=missing.length?`Vollständig: ${5-missing.length}/5 Tage. Fehlend oder unvollständig: ${missing.join(', ')}.`:'Vollständig: alle 5 Tage haben Kernfragen.';document.querySelectorAll('[data-exp-field]').forEach(input=>{const key=input.dataset.expField;input.value=state.experimentPlan?.[key]||'';input.oninput=()=>{state.experimentPlan=state.experimentPlan||{};state.experimentPlan[key]=input.value;save()}})}
-  const oldInsights=insights; insights=function(){const tips=oldInsights();const n=entries().length;return tips.map(t=>({...t,text:t.text.map(v=>v+` (Hinweis auf Basis von ${n} ausgefüllten Tagen; keine Diagnose.)`)}))};
-  const oldExperiments=experiments; experiments=function(tips){const html=oldExperiments(tips);return html.replace(/(<label class="experiment">[\s\S]*?<\/label>)/g,'$1').replace('</div></div>','</div><p class="sub">Freiwillig: Formuliere zu einem ausgewählten Experiment Was, Wann und woran du die Wirkung erkennst.</p><div class="experiment-fields"><input placeholder="Was genau?" data-exp-field="was"><input placeholder="Wann?" data-exp-field="wann"><input placeholder="Auswertung / Woran merke ich es?" data-exp-field="auswertung"></div></div>')};
-  window.addEventListener('load',wireEnhancements);wireEnhancements();
-})();
-
-</script>
 <script>
-(function(){
-  const originalStateKey=KEY;
-  let pendingImport=null, lastFocus=null;
-  function setStatus(msg,error){const e=document.getElementById('storageStatus');if(e){e.textContent=msg;e.className='storage-status'+(error?' error':'')}}
-  function emptyWeek(start){return {start,scaleVersion:2,days:Object.fromEntries(ALL_DAYS.map(d=>[d[0],blank()])),experiments:{},history:Array.isArray(state.history)?state.history:[],previousWeek:null}}
-  function weekLabel(start){try{return new Intl.DateTimeFormat('de-DE',{dateStyle:'medium'}).format(new Date(start+'T12:00:00'))}catch(_){return start}}
-  function archiveCurrent(){if(!state||!state.start)return;const snapshot=JSON.parse(JSON.stringify(state));delete snapshot.history;state.history=Array.isArray(state.history)?state.history.filter(h=>h.start!==snapshot.start):[];if(completeWeek(snapshot)){state.history.push(snapshot);state.history=state.history.slice(-52);state.previousWeek=weekAverages(snapshot)}}
-  function completeWeek(s){return Object.values(s.days||{}).some(complete)}
-  function weekAverages(s){const xs=ALL_DAYS.map(d=>s.days?.[d[0]]).filter(Boolean);const avgF=k=>{let a=xs.map(x=>Number(x[k])).filter(Number.isFinite);return a.length?a.reduce((a,b)=>a+b,0)/a.length:null};return {evening:avgF('evening'),burden:avgF('burden'),sleep:avgF('sleep')}}
-  function changeWeek(next,force){next=validMonday(next);if(next===state.start)return;const has=completeWeek(state);if(has&&!force&&!confirm('Die aktuelle Woche enthält Einträge. Vor dem Wechsel wird sie im lokalen Archiv abgelegt. Fortfahren?')){document.getElementById('weekStart').value=state.start;return}archiveCurrent();const previous=state.previousWeek;state=emptyWeek(next);state.previousWeek=previous;save();document.getElementById('weekStart').value=next;renderTabs();renderDays();showDay('mo');setStatus('Neue Woche geöffnet: '+weekLabel(next),false)}
-  function closeDialog(id){const d=document.getElementById(id);if(d){d.classList.remove('open');if(lastFocus){lastFocus.focus();lastFocus=null}}}
-  function openDialog(id,focusSelector){const d=document.getElementById(id);if(!d)return;lastFocus=document.activeElement;d.classList.add('open');const target=d.querySelector(focusSelector||'.modal');target?.focus()}
-  function renderHistory(){const list=document.getElementById('historyList');const hs=(state.history||[]).slice().sort((a,b)=>b.start.localeCompare(a.start));list.innerHTML=hs.length?hs.map(h=>`<div class="history-row"><div><b>Woche ab ${esc(weekLabel(h.start))}</b><small>${Object.values(h.days||{}).filter(complete).length} Tage mit Einträgen · Ø Abendenergie ${weekAverages(h).evening?.toFixed(1)||'—'}</small></div><button class="btn small" data-open-week="${esc(h.start)}">Ansehen</button></div>`).join(''):'<p class="sub">Noch keine abgeschlossene Woche archiviert.</p>';list.querySelectorAll('[data-open-week]').forEach(b=>b.onclick=()=>{const h=state.history.find(x=>x.start===b.dataset.openWeek);if(h){const history=Array.isArray(state.history)?JSON.parse(JSON.stringify(state.history)):[];state=JSON.parse(JSON.stringify(h));state.history=history;save();document.getElementById('weekStart').value=state.start;renderTabs();renderDays();closeDialog('historyModal');setStatus('Archivierte Woche geöffnet: '+weekLabel(state.start),false)}})}
-  function exportFile(kind){const name='wochenreflexion-'+state.start;let content,type,ext;if(kind==='json'){content=JSON.stringify(state,null,2);type='application/json;charset=utf-8';ext='json'}else if(kind==='csv'){const rows=[['Tag','Energie morgens','Energie abends','Schlaf','Belastung','Belastungen','Was lief gut','Tagesplan / Sonstiges']];ALL_DAYS.forEach(d=>{const x=state.days[d[0]]||blank();rows.push([d[1],x.morning,x.evening,x.sleep,x.burden,Object.entries(x.loads||{}).map(([i,v])=>LOADS[i]+' ('+v+')').join('; '),(x.goods||[]).map(i=>GOODS[i]).join('; '),x.dayPlan])});content='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');type='text/csv;charset=utf-8';ext='csv'}else{content=report();type='text/plain;charset=utf-8';ext='txt'}const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-  function importFile(file){const reader=new FileReader();reader.onload=()=>{try{const parsed=JSON.parse(reader.result),candidate=migrateState(parsed);if(!candidate)throw Error('invalid');pendingImport=candidate;const days=Object.values(candidate.days).filter(complete).length;document.getElementById('importInfo').textContent=`${file.name}: ${days} von 5 Tagen mit Einträgen, Woche ab ${weekLabel(candidate.start)}.`;document.getElementById('importPreview').textContent=reportFor(candidate).slice(0,1600);openDialog('importModal');}catch(e){setStatus('Import abgebrochen: ungültige oder nicht unterstützte JSON-Datei.',true)}};reader.readAsText(file)}
-  function reportFor(s){const old=state;state=s;let r=report();state=old;return r}
-  function setup(){
-    document.getElementById('weekStart').onchange=e=>changeWeek(e.target.value,false);
-    document.getElementById('historyBtn').onclick=()=>{renderHistory();openDialog('historyModal','#historyTitle')};document.getElementById('closeHistory').onclick=()=>closeDialog('historyModal');
-    document.getElementById('exportBtn').onclick=()=>{exportFile('json');exportFile('txt');exportFile('csv');setStatus('JSON-, Text- und CSV-Export erstellt.',false)};
-    document.getElementById('fileInput').onchange=e=>{const f=e.target.files[0];if(f)importFile(f);e.target.value=''};document.getElementById('cancelImport').onclick=()=>{pendingImport=null;closeDialog('importModal')};document.getElementById('confirmImport').onclick=()=>{if(pendingImport){state=pendingImport;pendingImport=null;save();document.getElementById('weekStart').value=state.start;renderTabs();renderDays();closeDialog('importModal');setStatus('Import übernommen und lokale Daten überschrieben.',false)}};
-    ['historyModal','importModal'].forEach(id=>document.getElementById(id)?.addEventListener('click',e=>{if(e.target.id===id)closeDialog(id)}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDialog('historyModal');closeDialog('importModal')}});
-    document.getElementById('resetBtn').onclick=()=>changeWeek(dateMonday(),false);
-    setStatus('',false);
+const EX=[['Dead Bug','Aktivierung','2×6','2×8','3×8–10','3×10–12'],['Wandhocke','Beine & Gesäß','2×20 Sek.','2×30 Sek.','3×30–45 Sek.','3×45–60 Sek.'],['Kniebeugen','Beine & Gesäß','2×8–10','2×10–12','3×10–15','3×15–20'],['Ausfallschritt','Beine & Gesäß','2×6','2×8','3×8–10','3×10–12'],['Beckenlift','Beine & Gesäß','2×10–12','2×12–15','3×15–20','3×20–25'],['Liegestütze','Oberkörper','2×5–8','2×8–10','3×8–12','3×10–15'],['Schulterdrücken','Oberkörper','2×6–8','2×8–10','3×8–12','3×10–15'],['Trizeps-Dips','Oberkörper','2×5–8','2×8–10','3×8–12','3×10–15'],['Tischrudern','Oberkörper','2×8–10','2×10–12','3×12–15','3×15–20'],['KH-Hammer-Curls','Oberkörper','2×8–10','2×10–12','3×10–12','3×12–15'],['Superman Hold','Rumpf','2×15 Sek.','2×20 Sek.','3×20–30 Sek.','3×30–45 Sek.'],['Plank','Rumpf','2×20 Sek.','2×30 Sek.','3×30–45 Sek.','3×45–60 Sek.'],['Negativer Sit-Up','Rumpf','2×5–8','2×8','3×8–12','3×10–15']];
+const MEALS=[['Frühstück',500,42,[['Sojajoghurt','150 g'],['Proteinpulver (Koro)','40 g'],['Haferflocken','10 g'],['Leinsamen','10 g'],['Mandeln','10 g'],['Apfel','100 g'],['Kürbiskerne','10 g']]],['Mittagessen',500,26,[['Quinoa gekocht','100 g'],['Hülsenfrüchte','120 g'],['Tofu','100 g'],['Gemüse','250 g'],['Olivenöl','5 ml']]],['Snack',102,21,[['Proteindrink (Koro)','30 g']]],['Abendessen',700,48,[['Tofu','200 g'],['Linsen trocken','80 g'],['Gemüse','350 g'],['Leinsamen','10 g']]]];
+const DEFAULT={profile:{name:'Andreas',age:49,height:182,startWeight:78,startWaist:101,targetWeight:74,targetWaist:92,calories:1800,protein:137,activity:'moderat',startDate:new Date().toISOString().slice(0,10),notes:'Einlagen links; Fußübungen regelmäßig.'},checks:{},mealChecks:{},water:{},training:[],foot:[],measurements:[],supps:[{name:'B12 + Folat',dose:'1 Tablette',time:'morgens',note:'Produktinfo: 500 µg B12 + 200 µg Folsäure je Tablette. Morgens als feste Routine; Packungsangaben beachten.',taken:{}},{name:'D3 + K2',dose:'1 Kapsel',time:'zu einer Mahlzeit',note:'Produktinfo: 50 µg D3 + 25 µg K2 je Tagesdosis. Mit ausreichend Flüssigkeit zu einer Mahlzeit, idealerweise mit etwas Fett.',taken:{}},{name:'Magnesium',dose:'laut Packung',time:'abends',note:'Produktinfo: Magnesiumoxid/-citrat und 94 mg elementares Magnesium je Tagesdosis. Auf Verträglichkeit achten.',taken:{}},{name:'Omega-3 aus Algen',dose:'2 Kapseln',time:'zu einer Mahlzeit',note:'Produktinfo: 1.300 mg Omega-3, davon 800 mg DHA je Tagesdosis. Zu einer Mahlzeit einnehmen.',taken:{}}],reviews:[],weekOverride:0,theme:'light'};
+let S=JSON.parse(localStorage.getItem('andreasKompassV2')||'null')||structuredClone(DEFAULT);function merge(){S.profile={...DEFAULT.profile,...(S.profile||{})};for(const k of ['checks','mealChecks','water','training','foot','measurements','supps','reviews','customExercises'])S[k]=S[k]||DEFAULT[k];S.theme=S.theme||'light';S.customExercises=S.customExercises||[]}merge();const today=()=>new Date().toISOString().slice(0,10);let selectedDay=today();
+function save(msg='Gespeichert'){localStorage.setItem('andreasKompassV2',JSON.stringify(S));renderAll();if(msg)toast(msg)}function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1300)}function esc(x){return String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function fmt(n,d=1){return Number(n||0).toLocaleString('de-DE',{maximumFractionDigits:d})}
+function allExercises(){return EX.concat(S.customExercises||[])}
+function week(){if(S.weekOverride)return S.weekOverride;return Math.max(1,Math.min(12,Math.floor((Date.now()-new Date(S.profile.startDate))/6048e5)+1))}function initials(){return S.profile.name.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()}
+function metrics(){let p=S.profile,h=+p.height,w=+(S.measurements.slice().sort((a,b)=>b.date.localeCompare(a.date))[0]?.weight||p.startWeight),wa=+(S.measurements.slice().sort((a,b)=>b.date.localeCompare(a.date))[0]?.waist||p.startWaist),b=10*w+6.25*h-5*+p.age+5,t=b*({leicht:1.375,moderat:1.55,hoch:1.725}[p.activity]||1.55);return{w,wa,bmi:w/(h/100)**2,whtr:wa/h,bmr:b,tdee:t,deficit:Math.max(200,t-+p.calories)}}
+function setView(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===v));document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===v));if(v==='training')renderTraining();if(v==='tracking')renderTracking()}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+let checkDay=today();
+const CHECK_ITEMS=['Mahlzeit erledigt','Supplement genommen','Training / Bewegung','Wasserziel erreicht'];
+function renderChecklist(){let c=S.checks[checkDay]||{};document.getElementById('checkDate').textContent=new Date(checkDay+'T12:00').toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit'});document.getElementById('checklist').innerHTML=CHECK_ITEMS.map((x,i)=>`<label class="card check ${c[i]?'done':''}"><input type="checkbox" data-check="${i}" ${c[i]?'checked':''}>${x}</label>`).join('');document.querySelectorAll('[data-check]').forEach(x=>x.onchange=()=>{S.checks[checkDay]=S.checks[checkDay]||{};S.checks[checkDay][x.dataset.check]=x.checked;save(false)})}
+document.getElementById('checkPrev').onclick=()=>{let d=new Date(checkDay);d.setDate(d.getDate()-1);checkDay=d.toISOString().slice(0,10);renderChecklist()};document.getElementById('checkNext').onclick=()=>{let d=new Date(checkDay);d.setDate(d.getDate()+1);checkDay=d.toISOString().slice(0,10);renderChecklist()};
+function lineSvg(id,series,labels=[],target=null){let svg=document.getElementById(id);if(!svg)return;let W=900,H=260,p=35,all=series.flat().filter(Number.isFinite);if(!all.length){svg.innerHTML='<text x="50%" y="50%" text-anchor="middle" fill="currentColor">Noch keine Daten</text>';return}let min=Math.min(...all),max=Math.max(...all);if(target!==null){min=Math.min(min,target);max=Math.max(max,target)}if(min===max){min--;max++}let x=i=>p+i*(W-2*p)/Math.max(1,(series[0].length-1)),y=v=>H-p-(v-min)/(max-min)*(H-2*p);let out=`<line x1="${p}" y1="${H-p}" x2="${W-p}" y2="${H-p}" stroke="var(--line)"/>`;series.forEach((arr,j)=>{let pts=arr.map((v,i)=>`${x(i)},${y(v)}`).join(' ');out+=`<polyline fill="none" stroke="${j?'var(--orange)':'var(--green)'}" stroke-width="4" points="${pts}"/>`});if(target!==null)out+=`<line x1="${p}" y1="${y(target)}" x2="${W-p}" y2="${y(target)}" stroke="var(--muted)" stroke-dasharray="8 7"/>`;svg.innerHTML=out+`<text x="${p}" y="18" fill="var(--muted)" font-size="13">${labels.join(' · ')}</text>`}
+function renderDashboard(){let m=metrics(),p=S.profile;document.getElementById('dWeight').textContent=fmt(m.w)+' kg';document.getElementById('dWaist').textContent=fmt(m.wa)+' cm';document.getElementById('dBmi').textContent=fmt(m.bmi,1);document.getElementById('dWhtr').textContent=fmt(m.whtr,2);document.getElementById('dWeightSub').textContent=`Start ${p.startWeight} · Ziel ${p.targetWeight}`;document.getElementById('dWaistSub').textContent=`Start ${p.startWaist} · Ziel ${p.targetWaist}`;document.getElementById('weekLabel').textContent='Woche '+week();document.getElementById('dateLabel').textContent=new Intl.DateTimeFormat('de-DE',{weekday:'long',day:'numeric',month:'long'}).format(new Date());let wp=(+p.startWeight-m.w)/(+p.startWeight-+p.targetWeight)*100;wp=Math.max(0,Math.min(100,wp));document.getElementById('goalbar').style.width=wp+'%';document.getElementById('progressText').textContent=Math.round(wp)+'% Weg zum Ziel';let checks=S.checks[today()]||{};let done=Object.values(checks).filter(Boolean).length;document.getElementById('score').textContent=Math.round(done/4*100)+'%';document.getElementById('scorebar').style.width=Math.min(100,done/4*100)+'%';document.getElementById('scoretext').textContent=done+' von 4 Punkten';let streak=0,d=new Date();while(true){let k=d.toISOString().slice(0,10),c=S.checks[k];if(c&&Object.values(c).filter(Boolean).length>=4){streak++;d.setDate(d.getDate()-1)}else break}document.getElementById('streak').textContent='Streak: '+streak+' Tage';renderChecklist();let h='';for(let i=6;i>=0;i--){let q=new Date();q.setDate(q.getDate()-i);let k=q.toISOString().slice(0,10),c=S.checks[k]||{};h+=`<div>${q.toLocaleDateString('de-DE',{weekday:'short'})}<i class="${Object.values(c).some(Boolean)?'on':''}"></i><small>${Object.values(c).filter(Boolean).length}/4</small></div>`}document.getElementById('heat').innerHTML=h;let ms=S.measurements.slice().sort((a,b)=>a.date.localeCompare(b.date));lineSvg('trend',[ms.map(x=>+x.weight).filter(Boolean),ms.map(x=>+x.waist).filter(Boolean)],['Gewicht','Bauch']);}
+document.getElementById('weekMinus').onclick=()=>{S.weekOverride=Math.max(1,week()-1);save(false)};document.getElementById('weekPlus').onclick=()=>{S.weekOverride=Math.min(12,week()+1);save(false)};
+function renderProfile(){let p=S.profile,fields=[['name','Name','text'],['age','Alter / Jahre','number'],['height','Größe / cm','number'],['startWeight','Startgewicht / kg','number'],['startWaist','Startbauch / cm','number'],['targetWeight','Zielgewicht / kg','number'],['targetWaist','Zielbauch / cm','number'],['calories','Kalorienziel / kcal','number'],['protein','Proteinziel / g','number'],['startDate','Programmstart','date']];document.getElementById('profileFields').innerHTML=fields.map(x=>`<div class="field"><label>${x[1]}</label><input data-p="${x[0]}" type="${x[2]}" value="${esc(p[x[0]])}"></div>`).join('')+`<div class="field"><label>Aktivitätslevel</label><select data-p="activity"><option ${p.activity==='leicht'?'selected':''}>leicht</option><option ${p.activity==='moderat'?'selected':''}>moderat</option><option ${p.activity==='hoch'?'selected':''}>hoch</option></select></div><div class="field full"><label>Notizen Einlagen / Fuß</label><textarea data-p="notes">${esc(p.notes)}</textarea></div>`;let m=metrics();document.getElementById('bmr').textContent=Math.round(m.bmr)+' kcal';document.getElementById('tdee').textContent=Math.round(m.tdee)+' kcal';document.getElementById('deficit').textContent=Math.round(m.deficit)+' kcal';document.getElementById('avatar').textContent=initials()||'A'}
+document.getElementById('saveProfile').onclick=()=>{document.querySelectorAll('[data-p]').forEach(i=>{let v=i.value;S.profile[i.dataset.p]=i.type==='number'?+v:v});save('Profil gespeichert')};
+function renderTrainingCharts(){let idx=+(document.getElementById('exerciseChartSelect')?.value||0),rows=S.training.filter(x=>+x.exercise===idx).sort((a,b)=>a.date.localeCompare(b.date));lineSvg('exerciseChart',[rows.map(x=>+x.reps||0)],['Wdh. / Sekunden']);let vol=Array.from({length:12},(_,i)=>S.training.filter(x=>x.week===i+1).reduce((a,x)=>a+(+x.sets||0)*(+x.reps||0)*(+x.weight||1),0));lineSvg('volumeChart',[vol],['Volumen Woche 1–12']);}
+function renderTraining(){let sel=document.getElementById('trainWeek');if(!sel.options.length)sel.innerHTML=Array.from({length:12},(_,i)=>`<option value="${i+1}">Woche ${i+1}</option>`).join('');sel.value=sel.value||week();document.getElementById('trainWeekTitle').textContent=sel.value;document.getElementById('trExercise').innerHTML=allExercises().map((e,i)=>`<option value="${i}">${e[0]}</option>`).join('');let w=+sel.value,rows=S.training.filter(x=>x.week===w).sort((a,b)=>b.date.localeCompare(a.date));document.getElementById('trainingRows').innerHTML=rows.length?rows.map(x=>`<tr><td>${x.date}</td><td>${esc(allExercises()[x.exercise]?.[0]||x.exercise)}</td><td>${x.sets} × ${x.reps}</td><td>${x.weight||'–'}</td><td>${x.rpe||'–'}</td><td><button class="btn small" data-edittr="${x.id}">Bearbeiten</button> <button class="btn danger small" data-deltr="${x.id}">Löschen</button></td></tr>`).join(''):'<tr><td colspan="6" class="muted">Noch keine Einheit in dieser Woche.</td></tr>';document.querySelectorAll('[data-edittr]').forEach(b=>b.onclick=()=>{let x=S.training.find(x=>x.id===b.dataset.edittr);document.getElementById('trDate').value=x.date;document.getElementById('trNote').value=x.note||'';document.getElementById('trExercise').value=x.exercise;document.getElementById('trSets').value=x.sets;document.getElementById('trReps').value=x.reps;document.getElementById('trWeight').value=x.weight;document.getElementById('trRpe').value=x.rpe;S.training=S.training.filter(y=>y.id!==x.id);toast('Einheit zum Bearbeiten geladen')});document.querySelectorAll('[data-deltr]').forEach(b=>b.onclick=()=>{S.training=S.training.filter(x=>x.id!==b.dataset.deltr);save()});document.getElementById('footRows').innerHTML=S.foot.length?S.foot.map(x=>`<div class="row" style="padding:8px 0;border-bottom:1px solid var(--line)"><label class="check"><input type="checkbox" data-foot="${x.id}" ${x.done?'checked':''}> <b>${esc(x.name)}</b> <span class="muted">${esc(x.note||'')}</span></label><button class="btn danger small" data-delfoot="${x.id}">×</button></div>`).join(''):'<span class="muted">Noch keine Fußübungen.</span>';document.querySelectorAll('[data-foot]').forEach(i=>i.onchange=()=>{let x=S.foot.find(x=>x.id===i.dataset.foot);x.done=i.checked;save(false)});document.querySelectorAll('[data-delfoot]').forEach(b=>b.onclick=()=>{S.foot=S.foot.filter(x=>x.id!==b.dataset.delfoot);save()});let es=allExercises(),cs=document.getElementById('exerciseChartSelect');cs.innerHTML=es.map((e,i)=>`<option value="${i}">${e[0]}</option>`).join('');cs.onchange=renderTrainingCharts;renderTrainingCharts()}
+document.getElementById('trainWeek').onchange=renderTraining;document.getElementById('saveTraining').onclick=()=>{let w=+document.getElementById('trainWeek').value;S.training.push({id:Date.now().toString(),week:w,date:document.getElementById('trDate').value||today(),note:document.getElementById('trNote').value,exercise:+document.getElementById('trExercise').value,sets:+document.getElementById('trSets').value||0,reps:+document.getElementById('trReps').value||0,weight:+document.getElementById('trWeight').value||0,rpe:+document.getElementById('trRpe').value||0});save('Training gespeichert')};document.getElementById('copyWeek').onclick=()=>{let w=+document.getElementById('trainWeek').value;S.training.filter(x=>x.week===w-1).forEach(x=>S.training.push({...x,id:Date.now().toString()+Math.random(),week:w,date:today()}));save('Vorlage kopiert')};document.getElementById('addFoot').onclick=()=>{let n=document.getElementById('footName').value.trim();if(!n)return toast('Bitte Übung benennen');S.foot.push({id:Date.now().toString(),name:n,note:document.getElementById('footNote').value,date:document.getElementById('footDate').value||today(),done:false});save('Fußübung gespeichert')};
+function renderNutrition(){document.getElementById('calTarget').textContent=`${S.profile.calories.toLocaleString('de-DE')} kcal · ${S.profile.protein} g Protein`;let ds=[...Array(7)].map((_,i)=>{let d=new Date();d.setDate(d.getDate()-d.getDay()+1+i);return d.toISOString().slice(0,10)});document.getElementById('mealDays').innerHTML=ds.map(d=>`<button class="${d===selectedDay?'active':''}" data-daymeal="${d}">${new Date(d).toLocaleDateString('de-DE',{weekday:'short',day:'numeric'})}</button>`).join('');document.querySelectorAll('[data-daymeal]').forEach(b=>b.onclick=()=>{selectedDay=b.dataset.daymeal;renderNutrition()});let extra=S.mealChecks[selectedDay]?.extra||[];let totalK=0,totalP=0;document.getElementById('mealList').innerHTML=MEALS.map((m,i)=>{let done=!!S.mealChecks[selectedDay]?.[i];if(done){totalK+=m[1];totalP+=m[2]}return `<article class="card meal ${done?'done':''}"><h3>${m[0]}</h3><b style="color:var(--green)">${m[1]} kcal · ${m[2]} g Protein</b>${m[3].map(x=>`<div class="food"><span>${x[0]}</span><span>${x[1]}</span></div>`).join('')}<button class="btn small" data-editmeal="${i}">Mahlzeit bearbeiten</button><label class="check" style="margin-top:12px"><input type="checkbox" data-meal="${i}" ${done?'checked':''}> erledigt</label></article>`}).join('')+extra.map((x,i)=>`<article class="card meal"><h3>${esc(x.name)}</h3><b>${x.kcal} kcal · ${x.protein} g Protein</b></article>`).join('');document.querySelectorAll('[data-editmeal]').forEach(b=>b.onclick=()=>{let i=+b.dataset.editmeal,n=prompt('Mahlzeitname',MEALS[i][0]);if(n)MEALS[i][0]=n;let k=+prompt('kcal',MEALS[i][1]);if(k)MEALS[i][1]=k;let pr=+prompt('Protein (g)',MEALS[i][2]);if(pr)MEALS[i][2]=pr;save('Mahlzeit aktualisiert')});document.querySelectorAll('[data-meal]').forEach(i=>i.onchange=()=>{S.mealChecks[selectedDay]=S.mealChecks[selectedDay]||{};S.mealChecks[selectedDay][i.dataset.meal]=i.checked;save(false)});document.getElementById('mealSummary').textContent=`Abgehakt: ${totalK} kcal · ${totalP} g Protein`;document.getElementById('waterText').textContent=`${S.water[selectedDay]||0} / 8 Gläser`}
+document.getElementById('extraBtn').onclick=()=>{let n=prompt('Name des Extras?');if(!n)return;let k=+prompt('kcal?',200)||0,p=+prompt('Protein (g)?',0)||0;S.mealChecks[selectedDay]=S.mealChecks[selectedDay]||{};S.mealChecks[selectedDay].extra=S.mealChecks[selectedDay].extra||[];S.mealChecks[selectedDay].extra.push({name:n,kcal:k,protein:p});save('Extra gespeichert')};document.getElementById('waterPlus').onclick=()=>{S.water[selectedDay]=(S.water[selectedDay]||0)+1;save(false)};document.getElementById('waterMinus').onclick=()=>{S.water[selectedDay]=Math.max(0,(S.water[selectedDay]||0)-1);save(false)};
+function renderSupps(){let d=today();document.getElementById('suppList').innerHTML=S.supps.map((s,i)=>`<article class="card supp"><h3>${esc(s.name)}</h3><b style="color:var(--green)">${esc(s.dose)}</b><p class="muted">${esc(s.time)} · ${esc(s.note)}</p><label class="check"><input type="checkbox" data-supp="${i}" ${s.taken?.[d]?'checked':''}> heute genommen</label><div class="row" style="margin-top:12px"><button class="btn small" data-editsupp="${i}">Bearbeiten</button><button class="btn danger small" data-delsupp="${i}">Löschen</button></div></article>`).join('');document.querySelectorAll('[data-supp]').forEach(i=>i.onchange=()=>{S.supps[i.dataset.supp].taken[d]=i.checked;save(false)});document.querySelectorAll('[data-editsupp]').forEach(b=>b.onclick=()=>{let s=S.supps[b.dataset.editsupp];s.name=prompt('Name',s.name)||s.name;s.dose=prompt('Dosis',s.dose)||s.dose;s.time=prompt('Zeitpunkt',s.time)||s.time;s.note=prompt('Hinweis',s.note)||s.note;save('Supplement aktualisiert')});document.querySelectorAll('[data-delsupp]').forEach(b=>b.onclick=()=>{if(confirm('Supplement löschen?')){S.supps.splice(+b.dataset.delsupp,1);save()}});lineSvg('suppChart',[Array.from({length:7},(_,i)=>{let q=new Date();q.setDate(q.getDate()-6+i);let k=q.toISOString().slice(0,10);return S.supps.filter(s=>s.taken?.[k]).length/Math.max(1,S.supps.length)*100})],['Compliance %'],100)}
+document.getElementById('addSupp').onclick=()=>{let n=prompt('Name des Supplements?');if(!n)return;S.supps.push({name:n,dose:prompt('Dosis?','laut Packung'),time:prompt('Zeitpunkt?','morgens'),note:prompt('Hinweis?',''),taken:{}});save('Supplement hinzugefügt')};
+function renderTracking(){let ms=S.measurements.slice().sort((a,b)=>a.date.localeCompare(b.date));document.getElementById('measurementRows').innerHTML=ms.length?ms.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${x.weight||'–'} kg</td><td>${x.waist||'–'} cm</td><td>${x.sleep||'–'}</td><td>${x.steps||'–'}</td><td><button class="btn small" data-editm="${x.id}">Bearbeiten</button> <button class="btn danger small" data-delm="${x.id}">Löschen</button></td></tr>`).join(''):'<tr><td colspan="6" class="muted">Noch keine Messungen.</td></tr>';document.querySelectorAll('[data-editm]').forEach(b=>b.onclick=()=>{let x=S.measurements.find(x=>x.id===b.dataset.editm);['Date','Weight','Waist','Hip','Sleep','Steps','Energy','Mood'].forEach(k=>document.getElementById('m'+k).value=x[k.toLowerCase()]||x.date);S.measurements=S.measurements.filter(y=>y.id!==x.id);toast('Messung zum Bearbeiten geladen')});document.querySelectorAll('[data-delm]').forEach(b=>b.onclick=()=>{S.measurements=S.measurements.filter(x=>x.id!==b.dataset.delm);save()});let ws=ms.map(x=>+x.weight).filter(Boolean),wa=ms.map(x=>+x.waist).filter(Boolean);lineSvg('measureChart',[ws,wa],['Gewicht','Bauch']);let m=metrics();document.getElementById('weekCompare').textContent=ws.length>7?`Δ Gewicht zur Vorwoche: ${fmt(ws.at(-1)-ws.at(-8))} kg`:'Wochenvergleich ab 8 Messungen';document.getElementById('rollingAvg').textContent='7-Tage-Schnitt: '+(ws.length?fmt(ws.slice(-7).reduce((a,b)=>a+b,0)/Math.min(7,ws.length))+' kg':'–');document.getElementById('whtrZone').textContent='WHtR-Zone: '+(m.whtr<.5?'grün · unter 0,50':m.whtr<.6?'beobachten · 0,50–0,60':'über 0,60');document.getElementById('trackDateLabel').textContent=document.getElementById('mDate').value||today()}
+document.getElementById('addMeasurement').onclick=()=>{let x={id:Date.now().toString(),date:document.getElementById('mDate').value||today(),weight:+document.getElementById('mWeight').value||0,waist:+document.getElementById('mWaist').value||0,hip:+document.getElementById('mHip').value||0,sleep:+document.getElementById('mSleep').value||0,steps:+document.getElementById('mSteps').value||0,energy:+document.getElementById('mEnergy').value||0,mood:+document.getElementById('mMood').value||0};if(!x.weight&&!x.waist)return toast('Gewicht oder Bauchumfang eintragen');S.measurements.push(x);save('Messung gespeichert')};
+function csv(arr,headers,name){let s=[headers.join(';'),...arr.map(x=>headers.map(h=>x[h]??'').join(';'))].join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download=name;a.click()}document.getElementById('csvMeasurements').onclick=()=>csv(S.measurements,['date','weight','waist','hip','sleep','steps','energy','mood'],'andreas-messungen.csv');document.getElementById('csvTraining').onclick=()=>csv(S.training,['date','week','exercise','sets','reps','weight','rpe','note'],'andreas-training.csv');
+function renderReview(){document.getElementById('reviewList').innerHTML=S.reviews.length?S.reviews.slice().reverse().map(r=>`<article class="card review"><b>${r.date}</b><p><strong>Gut:</strong> ${esc(r.good)}</p><p><strong>Leichter:</strong> ${esc(r.easy)}</p><p><strong>Fokus:</strong> ${esc(r.focus)}</p></article>`).join(''):'<div class="card muted">Noch keine Reviews gespeichert.</div>'}document.getElementById('saveReview').onclick=()=>{S.reviews.push({date:today(),good:document.getElementById('rGood').value,easy:document.getElementById('rEasy').value,focus:document.getElementById('rFocus').value});document.getElementById('rGood').value='';document.getElementById('rEasy').value='';document.getElementById('rFocus').value='';save('Review gespeichert')};
+document.getElementById('resetApp').onclick=()=>{if(confirm('Alle App-Daten wirklich löschen?')){localStorage.removeItem('andreasKompassV2');location.reload()}};
+const addExerciseBtn=document.createElement('button');addExerciseBtn.className='btn';addExerciseBtn.textContent='+ Eigene Übung';addExerciseBtn.onclick=()=>{
+  let n=prompt('Name der Übung?');
+  if(!n) return;
+  S.customExercises.push([n,'Eigene Übung','2×8','2×10','3×10','3×12']);
+  // ask for kind so timer can be smart
+  const k=prompt('Timer-Typ? (time = Halte-Zeit in Sek. | reps = Wiederholungen, sonst manuell)','time');
+  if(k==='time'||k==='reps'){
+    const d=prompt('Stufe 1 Dauer in Sek.?', k==='time'?'20':'8');
+    const r=prompt('Pause nach Satz in Sek.?','30');
+    const stages=[
+      {sec:Number(d)||(k==='time'?20:8)*3, sides:1, rest:Number(r)||30},
+      {sec:(Number(d)||(k==='time'?20:8)*3)+10, sides:1, rest:Number(r)||30},
+      {sec:(Number(d)||(k==='time'?20:8)*3)+15, sides:1, rest:Number(r)||30},
+      {sec:(Number(d)||(k==='time'?20:8)*3)+25, sides:1, rest:Number(r)||30}
+    ];
+    if(k==='reps'){
+      stages.forEach((s,i)=>{s.reps=Math.round((s.sec||24)/3); delete s.sec;});
+    }
+    EX_TIMES[n]={kind:k, stages, desc:'Eigene Übung'};
   }
-  setup();
-})();
-</script>
+  save('Übung hinzugefügt');
+};
+document.querySelector('#training .section-head').querySelector('.row').appendChild(addExerciseBtn);
 
-<script>
-/* Service Worker registration – relative path works under /repo-name/ */
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js', { scope: './' })
-      .then(function (reg) {
-        // Optional: prompt user when an update is waiting
-        if (reg.waiting) {
-          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-        }
-        reg.addEventListener('updatefound', function () {
-          var w = reg.installing;
-          if (!w) return;
-          w.addEventListener('statechange', function () {
-            if (w.state === 'installed' && navigator.serviceWorker.controller) {
-              w.postMessage({ type: 'SKIP_WAITING' });
-            }
-          });
-        });
-      })
-      .catch(function (err) {
-        console.warn('Service Worker Registrierung fehlgeschlagen:', err);
-      });
+/* ===== Smart Timer v2 (intelligent, exercise-aware) ===== */
+const EX_TIMES={
+  'Dead Bug':         {kind:'reps', stages:[{reps:6,sides:2,rest:10},{reps:8,sides:2,rest:12},{reps:9,sides:2,rest:15},{reps:11,sides:2,rest:15}],
+                        desc:'Kontrolle pro Seite, kein Rückenheben'},
+  'Wandhocke':        {kind:'time', stages:[{sec:20,sides:1,rest:30},{sec:30,sides:1,rest:30},{sec:37,sides:1,rest:30},{sec:52,sides:1,rest:30}],
+                        desc:'Spannung halten, ruhig atmen'},
+  'Kniebeugen':       {kind:'reps', stages:[{reps:9,sides:1,rest:60},{reps:11,sides:1,rest:60},{reps:12,sides:1,rest:60},{reps:17,sides:1,rest:60}],
+                        desc:'Tempo 2 s runter / 1 s hoch'},
+  'Ausfallschritt':   {kind:'reps', stages:[{reps:6,sides:2,rest:45},{reps:8,sides:2,rest:45},{reps:9,sides:2,rest:45},{reps:11,sides:2,rest:45}],
+                        desc:'Pro Seite sauber abfedern'},
+  'Beckenlift':       {kind:'reps', stages:[{reps:11,sides:1,rest:30},{reps:13,sides:1,rest:30},{reps:17,sides:1,rest:30},{reps:22,sides:1,rest:30}],
+                        desc:'Oben 1 s halten'},
+  'Liegestütze':      {kind:'reps', stages:[{reps:6,sides:1,rest:60},{reps:9,sides:1,rest:60},{reps:10,sides:1,rest:60},{reps:12,sides:1,rest:60}],
+                        desc:'Tempo 2–3 s absenken'},
+  'Schulterdrücken':  {kind:'reps', stages:[{reps:7,sides:1,rest:60},{reps:9,sides:1,rest:60},{reps:10,sides:1,rest:60},{reps:12,sides:1,rest:60}],
+                        desc:'Bauch fest'},
+  'Trizeps-Dips':     {kind:'reps', stages:[{reps:6,sides:1,rest:45},{reps:9,sides:1,rest:45},{reps:10,sides:1,rest:45},{reps:12,sides:1,rest:45}],
+                        desc:'Ellenbogen nah am Körper'},
+  'Tischrudern':      {kind:'reps', stages:[{reps:9,sides:1,rest:45},{reps:11,sides:1,rest:45},{reps:13,sides:1,rest:45},{reps:17,sides:1,rest:45}],
+                        desc:'Aus dem Rücken ziehen'},
+  'KH-Hammer-Curls':  {kind:'reps', stages:[{reps:9,sides:1,rest:30},{reps:11,sides:1,rest:30},{reps:11,sides:1,rest:30},{reps:13,sides:1,rest:30}],
+                        desc:'Kein Schwung'},
+  'Superman Hold':    {kind:'time', stages:[{sec:15,sides:1,rest:20},{sec:20,sides:1,rest:20},{sec:25,sides:1,rest:20},{sec:37,sides:1,rest:20}],
+                        desc:'Klein anheben, weiteratmen'},
+  'Plank':            {kind:'time', stages:[{sec:20,sides:1,rest:30},{sec:30,sides:1,rest:30},{sec:37,sides:1,rest:30},{sec:52,sides:1,rest:30}],
+                        desc:'Linie halten, nicht ins Hohlkreuz'},
+  'Negativer Sit-Up': {kind:'reps', stages:[{reps:6,sides:1,rest:45},{reps:8,sides:1,rest:45},{reps:10,sides:1,rest:45},{reps:12,sides:1,rest:45}],
+                        desc:'Tempo 3–5 s absenken'}
+};
+const FOOT_TIMES={
+  'Zehen spreizen':              {kind:'time', stages:[{sec:30,sides:2,rest:10},{sec:45,sides:2,rest:10},{sec:60,sides:2,rest:10},{sec:45,sides:2,rest:10}], desc:'Beide Füße'},
+  'Fußgewölbe heben (Short Foot)':{kind:'time',stages:[{sec:3,sides:2,reps:10,rest:10},{sec:4,sides:2,reps:12,rest:10},{sec:5,sides:2,reps:10,rest:10},{sec:4,sides:2,reps:8,rest:10}], desc:'3–5 s halten'},
+  'Waden heben & senken':         {kind:'reps', stages:[{reps:12,sides:1,rest:20},{reps:15,sides:1,rest:20},{reps:10,sides:2,rest:20},{reps:12,sides:1,rest:20}], desc:'3 s runter'},
+  'Handtuch einrollen':           {kind:'reps', stages:[{reps:20,sides:1,rest:15},{reps:25,sides:1,rest:15},{reps:30,sides:1,rest:15},{reps:30,sides:1,rest:15}], desc:'Ferse bleibt unten'},
+  'Balance-Pad stehen':           {kind:'time', stages:[{sec:30,sides:1,rest:15},{sec:30,sides:1,rest:15},{sec:20,sides:2,rest:15},{sec:15,sides:2,rest:15}], desc:'Augen ggf. zu'},
+  'Marble Pickup':                {kind:'reps', stages:[{reps:10,sides:2,rest:15},{reps:10,sides:2,rest:15},{reps:10,sides:2,rest:15},{reps:10,sides:2,rest:15}], desc:'Nur mit den Zehen'}
+};
+const STAGE_LABELS=['1 · Einstieg (Wo. 1–2)','2 · Stabilisierung (Wo. 3–4)','3 · Intensivierung (Wo. 5–6)','4 · Konsolidierung (Wo. 7–8)'];
+
+let timer={
+  mode:'countdown',      // countdown | stopwatch | intervals
+  target:30,             // seconds to count down from (or current sw time)
+  running:false,
+  handle:null,
+  armed:false,           // true when current settings came from an exercise
+  currentName:'',
+  currentKind:'manual',  // 'manual' | 'exercise' | 'foot' | 'rest'
+  currentStage:1,        // 1..4
+  currentSide:'both',    // 'L' | 'R' | 'both'
+  intervalsDone:0,
+  restActive:false,
+  sideIndex:0            // for sides=2: 0 -> L, 1 -> R
+};
+
+/* --- helpers --- */
+function timerFmt(s){
+  s=Math.max(0,Math.round(s|0));
+  const m=Math.floor(s/60),sec=s%60;
+  return String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');
+}
+function timerPaint(){
+  const d=document.getElementById('timerDisplay');
+  if(!d) return;
+  d.textContent=timerFmt(timer.target);
+  d.classList.toggle('running',timer.running);
+  const bar=document.getElementById('timerBar');
+  if(bar){
+    if(timer.mode==='stopwatch'){
+      bar.style.width='100%';
+      bar.style.background='var(--orange)';
+    }else{
+      // store initial target for progress
+      if(!('_initTarget' in timer)||timer.target!==timer._lastInit){
+        timer._initTarget=timer.target>0?timer.target:30;
+        timer._lastInit=timer.target;
+      }
+      const pct=timer._initTarget?Math.max(0,Math.min(100,(timer._initTarget-timer.target)/timer._initTarget*100)):0;
+      bar.style.width=pct+'%';
+      bar.style.background=pct>=95?'var(--red)':'var(--green)';
+    }
+  }
+}
+function timerStop(){
+  if(timer.handle){clearInterval(timer.handle); timer.handle=null;}
+  timer.running=false;
+  timer.restActive=false;
+  const d=document.getElementById('timerDisplay');
+  if(d) d.classList.remove('running');
+  try{if(timer._wakeLock){timer._wakeLock.release(); timer._wakeLock=null;}}catch(_){}
+  _updateMini();
+}
+function timerBeep(){
+  try{
+    _unlockAudio();
+    const a=timer._ac||(timer._ac=new (window.AudioContext||window.webkitAudioContext)());
+    const o=a.createOscillator(),g=a.createGain();
+    o.type='sine';o.frequency.value=880;
+    o.connect(g);g.connect(a.destination);
+    g.gain.setValueAtTime(0,a.currentTime);
+    g.gain.linearRampToValueAtTime(.4,a.currentTime+.02);
+    g.gain.linearRampToValueAtTime(0,a.currentTime+.35);
+    o.start();o.stop(a.currentTime+.4);
+    setTimeout(()=>{
+      try{
+        const b=timer._ac||(timer._ac=new (window.AudioContext||window.webkitAudioContext)());
+        const o2=b.createOscillator(),g2=b.createGain();
+        o2.type='sine';o2.frequency.value=660;
+        o2.connect(g2);g2.connect(b.destination);
+        g2.gain.setValueAtTime(0,b.currentTime);
+        g2.gain.linearRampToValueAtTime(.35,b.currentTime+.02);
+        g2.gain.linearRampToValueAtTime(0,b.currentTime+.5);
+        o2.start();o2.stop(b.currentTime+.5);
+      }catch(_){}
+    },420);
+    try{navigator.vibrate&&navigator.vibrate(120);}catch(_){}
+  }catch(_){toast('Timer fertig');}
+}
+function timerSet(seconds, opts){
+  opts=opts||{};
+  timerStop();
+  timer.target=Math.max(1,Math.round(seconds));
+  timer._initTarget=timer.target;
+  timer._lastInit=timer.target;
+  timer.intervalsDone=0;
+  if(opts.name){timer.currentName=opts.name; document.getElementById('timerExercise').textContent=opts.name;}
+  if(opts.stage) timer.currentStage=opts.stage;
+  if(opts.side)  timer.currentSide=opts.side;
+  if(opts.kind)  timer.currentKind=opts.kind;
+  timer.armed=!!opts.armed;
+  refreshTimerMeta();
+  timerPaint();
+}
+function refreshTimerMeta(){
+  const stg=document.getElementById('timerStagePill');
+  const sub=document.getElementById('timerHint');
+  const pick=document.getElementById('timerSidePick');
+  const stgSel=document.getElementById('timerStageSel');
+  if(stgSel) stgSel.value=String(Math.max(0,Math.min(3,timer.currentStage-1)));
+  if(!stg||!sub) return;
+
+  let sidesTxt='1 Seite';
+  if(timer.currentSide==='L') sidesTxt='Seite L';
+  else if(timer.currentSide==='R') sidesTxt='Seite R';
+  else if(timer.currentSide==='both') sidesTxt='beide Seiten';
+
+  const stageLabel=STAGE_LABELS[Math.max(0,Math.min(3,timer.currentStage-1))]||'';
+  let unit='Sek.';
+  let valueStr=timerFmt(timer.target);
+
+  // try to enrich with exercise data
+  const data=lookupExerciseData(timer.currentName);
+  if(data){
+    const stg=data.stages?.[Math.max(0,Math.min(3,timer.currentStage-1))];
+    if(stg){
+      if(data.kind==='time'){
+        unit='Sek.'; valueStr=stg.sec+' s';
+      }else{
+        unit='Wdh.'; valueStr=(stg.reps||'?')+' ×';
+      }
+      if(stg.sides===2 && timer.currentSide==='both') sidesTxt='L → R (2 Seiten)';
+    }
+  }
+
+  stg.textContent='Stufe '+timer.currentStage+' · '+valueStr+' · '+sidesTxt;
+  let hint='Stufe '+timer.currentStage+' = '+stageLabel.replace(/^\d+\s*·\s*/,'')+' · ';
+  if(data){
+    hint+='<b>'+data.kind==='time'?'Halte-Zeit':'Wiederholungen'+'</b> · Pause nach Satz ≈ '+(data.stages?.[Math.max(0,Math.min(3,timer.currentStage-1))]?.rest||'–')+' s';
+    if(data.desc) hint+=' · '+esc(data.desc);
+  }else{
+    hint+='<b>manuelle Zeit</b>';
+  }
+  sub.innerHTML=hint;
+
+  // side picker visibility
+  if(pick){
+    const show=data && (data.stages?.[Math.max(0,Math.min(3,timer.currentStage-1))]?.sides||0)>1;
+    pick.hidden=!show;
+    pick.querySelectorAll('[data-side]').forEach(b=>b.classList.toggle('active',b.dataset.side===timer.currentSide));
+  }
+
+  // interval row visibility
+  const ir=document.getElementById('timerIntervalsRow');
+  if(ir) ir.hidden=timer.mode!=='intervals';
+
+  // highlight active preset button if it matches
+  document.querySelectorAll('[data-preset]').forEach(b=>{
+    const p=b.dataset.preset;
+    let match=false;
+    if(p==='rest') match=timer.currentKind==='rest';
+    else if(timer.mode==='countdown') match=Number(p)===timer.target;
+    b.classList.toggle('active',match);
   });
 }
-</script>
+function lookupExerciseData(name){
+  if(!name) return null;
+  if(EX_TIMES[name]) return EX_TIMES[name];
+  if(FOOT_TIMES[name]) return FOOT_TIMES[name];
+  return null;
+}
+function pickStageFromWeek(){
+  const w=Math.max(1,Math.min(12,week()));
+  // weeks 1-2: stage 1; 3-4: 2; 5-6: 3; 7+: 4
+  return Math.min(4,Math.ceil(w/2));
+}
+function applyExerciseToTimer(name, opts){
+  opts=opts||{};
+  const data=lookupExerciseData(name);
+  if(!data){
+    // fallback: no smart data -> keep current duration but update label
+    timer.currentName=name||'Übung';
+    document.getElementById('timerExercise').textContent=timer.currentName;
+    timer.currentKind='manual';
+    refreshTimerMeta();
+    return;
+  }
+  const stage=opts.stage||pickStageFromWeek();
+  const stg=data.stages[Math.max(0,Math.min(3,stage-1))];
+  let secs;
+  if(data.kind==='time'){
+    secs=stg.sec;
+  }else{
+    // reps-based: estimate ~3 s per rep (typical tempo)
+    secs=(stg.reps||8)*3;
+  }
+  let side=opts.side||'both';
+  if((stg.sides||1)>1) side=timer.currentSide==='L'||timer.currentSide==='R'?timer.currentSide:'both';
+  timerSet(secs,{
+    name, stage, side, kind:data.kind,
+    armed:true
+  });
+  toast((data.kind==='time'?'Halte-Zeit':'Wdh.-Schätzung')+': '+secs+' s · Stufe '+stage);
+  // pre-fill the training rep field too (nice side-effect)
+  const trReps=document.getElementById('trReps');
+  if(trReps && data.kind==='reps') trReps.value=stg.reps;
+}
+function parseNoteSeconds(note){
+  // parse strings like "2×60 s pro Fuß", "2 Min pro Fuß", "1 Min", "30 Sek."
+  if(!note) return null;
+  const s=String(note);
+  let m=s.match(/(\d+)\s*Min/i);
+  if(m) return parseInt(m[1],10)*60;
+  m=s.match(/(\d+)\s*Sek/i);
+  if(m) return parseInt(m[1],10);
+  m=s.match(/(\d+)\s*[Ss]/);
+  if(m) return parseInt(m[1],10);
+  return null;
+}
+function parseFootNote(note){
+  // returns {seconds, sides} if detectable
+  const sec=parseNoteSeconds(note);
+  if(!sec) return null;
+  // crude side detection
+  let sides=1;
+  if(/pro\s*Fuß/i.test(note)) sides=1; // foot-by-foot
+  else if(/pro\s*Seite/i.test(note)) sides=2;
+  else if(/linken?\s*Fuß/i.test(note)) sides=1;
+  return {sec, sides};
+}
 
+/* --- main controls --- */
+/* ===== iOS Safari / background-tab safe timer =====
+   Uses Date.now() timestamps instead of plain setInterval decrements so
+   the timer stays accurate even when:
+     * the screen locks,
+     * the user switches to another app (background throttling),
+     * iOS Safari suspends the page.
+   Also drives Wake Lock API (so the screen does NOT turn off mid-set)
+   and the docked mini-timer bar in the thumb zone.
+*/
+function _unlockAudio(){
+  try{
+    const ctx=timer._ac||(timer._ac=new (window.AudioContext||window.webkitAudioContext)());
+    if(ctx.state==='suspended') ctx.resume();
+  }catch(_){}
+}
+async function _acquireWakeLock(){
+  try{
+    if(!('wakeLock' in navigator)) return;
+    if(timer._wakeLock){try{timer._wakeLock.release();}catch(_){}}
+    timer._wakeLock=await navigator.wakeLock.request('screen');
+  }catch(_){}
+}
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='visible' && timer.running){ _acquireWakeLock(); }
+});
+function _tick(){
+  if(!timer.running) return;
+  const now=Date.now();
+  const elapsed=Math.floor((now-timer._startedAt)/1000);
+  if(timer.mode==='stopwatch'){
+    timer.target=timer._baseValue+elapsed;
+  }else if(timer.mode==='intervals'){
+    let remaining=timer._baseValue-elapsed;
+    while(remaining<=0){
+      timerBeep();
+      if(timer.restActive){
+        timer.restActive=false;
+        const total=Math.max(1,+document.getElementById('timerIntervals').value||1);
+        timer.intervalsDone+=1;
+        if(timer.intervalsDone>=total){
+          timerStop(); timerPaint(); _updateMini(); toast('Alle Sätze fertig ✓'); _flashMini('alert'); return;
+        }
+        const work=Math.max(1,timer._initWork||timer._initTarget||30);
+        timer._baseValue=work;
+        timer._startedAt+=(timer._restLast||0)*1000 + work*1000;
+        remaining=work;
+        toast('Satz '+(timer.intervalsDone+1)+'/'+total);
+      }else{
+        const total=Math.max(1,+document.getElementById('timerIntervals').value||1);
+        const rest=Math.max(0,+document.getElementById('timerRest').value||0);
+        if(rest>0){
+          timer._restLast=rest;
+          timer._baseValue=rest;
+          timer._startedAt+=timer._initWork*1000;
+          timer.restActive=true;
+          toast('Pause '+rest+' s – Satz '+(timer.intervalsDone+1)+'/'+total);
+          _flashMini('rest');
+          remaining=rest;
+        }else{
+          timer.intervalsDone+=1;
+          if(timer.intervalsDone>=total){
+            timerStop(); timerPaint(); _updateMini(); toast('Alle Sätze fertig ✓'); _flashMini('alert'); return;
+          }
+          timer._baseValue=Math.max(1,timer._initWork||timer._initTarget||30);
+          timer._startedAt+=timer._baseValue*1000;
+          remaining=timer._baseValue;
+          toast('Satz '+(timer.intervalsDone+1)+'/'+total);
+        }
+      }
+    }
+    timer.target=remaining;
+  }else{
+    const remaining=timer._baseValue-elapsed;
+    if(remaining<=0){
+      timer.target=0; timerStop(); timerBeep(); timerPaint(); _updateMini(); _flashMini('alert');
+      try{navigator.vibrate&&navigator.vibrate([60,50,60]);}catch(_){}
+      toast('Timer fertig · '+timer.currentName); return;
+    }
+    timer.target=remaining;
+  }
+  timerPaint();
+  _updateMini();
+}
+function _startLoop(){
+  if(timer.handle) clearInterval(timer.handle);
+  // 250ms tick keeps the display snappy without overloading backgrounded iOS
+  timer.handle=setInterval(_tick,250);
+}
+document.getElementById('timerStart').onclick=async ()=>{
+  if(timer.running) return;
+  _unlockAudio(); // iOS requires a user gesture before sound can play
+  await _acquireWakeLock();
+  timer.running=true;
+  timer._startedAt=Date.now();
+  timer._baseValue=timer.mode==='stopwatch'?0:Math.max(0,timer.target|0);
+  timer._initWork=timer._baseValue;
+  timer._restLast=0;
+  document.getElementById('timerDisplay').classList.add('running');
+  _showMini(true);
+  _updateMini();
+  _startLoop();
+};
+document.getElementById('timerPause').onclick=()=>{timerStop();timerPaint();};
+document.getElementById('timerReset').onclick=()=>{
+  timerStop();
+  if(timer.mode==='stopwatch'){timer.target=0;}
+  else if(timer.mode==='intervals'){
+    timer.target=timer._initTarget||30;
+    timer.intervalsDone=0;
+    timer.restActive=false;
+  }else{
+    // keep last preset; if came from exercise, reapply
+    if(timer.armed && timer.currentName && lookupExerciseData(timer.currentName)){
+      applyExerciseToTimer(timer.currentName,{stage:timer.currentStage, side:timer.currentSide});
+      return;
+    }
+    timer.target=30;
+  }
+  timerPaint();
+};
+document.querySelectorAll('[data-timer-mode]').forEach(b=>b.onclick=()=>{
+  timerStop();
+  timer.mode=b.dataset.timerMode;
+  document.querySelectorAll('[data-timer-mode]').forEach(x=>x.classList.toggle('active',x===b));
+  if(timer.mode==='stopwatch'){
+    timer.target=0;
+  }else if(timer.mode==='intervals'){
+    timer.target=timer._initTarget||30;
+    timer.intervalsDone=0;
+    timer.restActive=false;
+    if(lookupExerciseData(timer.currentName)){
+      const data=lookupExerciseData(timer.currentName);
+      const stg=data.stages?.[Math.max(0,Math.min(3,timer.currentStage-1))];
+      if(stg){
+        if(data.kind==='time') timer.target=stg.sec;
+        else timer.target=(stg.reps||8)*3;
+        timer._initTarget=timer.target;
+      }
+      const ri=document.getElementById('timerRest');
+      if(ri) ri.value=stg?.rest||20;
+    }
+  }else{
+    // countdown: if armed exercise, reapply
+    if(timer.armed && timer.currentName && lookupExerciseData(timer.currentName)){
+      applyExerciseToTimer(timer.currentName,{stage:timer.currentStage, side:timer.currentSide});
+      return;
+    }
+    timer.target=timer._initTarget||30;
+  }
+  refreshTimerMeta();
+  timerPaint();
+});
+
+/* Preset buttons */
+document.querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{
+  const v=b.dataset.preset;
+  timerStop();
+  if(v==='rest'){
+    timer.currentKind='rest';
+    timer.armed=false;
+    timer.target=timer.currentKind==='rest'?(timer._restSec||30):30;
+    const restInput=document.getElementById('timerRest');
+    const rs=restInput?+restInput.value||30:30;
+    timer.target=rs;
+    timer._restSec=rs;
+    document.getElementById('timerExercise').textContent='Pause';
+  }else{
+    timer.target=Number(v);
+    timer._initTarget=timer.target;
+    if(timer.currentKind==='rest') timer.currentKind='manual';
+    timer.armed=false;
+  }
+  refreshTimerMeta();
+  timerPaint();
+});
+
+/* +/- buttons */
+document.querySelectorAll('[data-adj]').forEach(b=>b.onclick=()=>{
+  const v=Number(b.dataset.adj);
+  if(timer.mode==='stopwatch') return;
+  timer.target=Math.max(1,timer.target+v);
+  timer._initTarget=timer.target;
+  timer.armed=false;
+  timerPaint();
+  refreshTimerMeta();
+});
+
+/* Stage picker */
+document.getElementById('timerStageSel').onchange=e=>{
+  const s=+e.target.value+1;
+  timer.currentStage=s;
+  if(timer.armed && timer.currentName && lookupExerciseData(timer.currentName)){
+    applyExerciseToTimer(timer.currentName,{stage:s, side:timer.currentSide});
+  }else{
+    refreshTimerMeta();
+  }
+};
+
+/* Side picker */
+document.querySelectorAll('[data-side]').forEach(b=>b.onclick=()=>{
+  if(!document.getElementById('timerSidePick').contains(b)) return;
+  timer.currentSide=b.dataset.side;
+  if(timer.armed && timer.currentName && lookupExerciseData(timer.currentName)){
+    applyExerciseToTimer(timer.currentName,{stage:timer.currentStage, side:timer.currentSide});
+  }else{
+    refreshTimerMeta();
+  }
+});
+
+/* Auto button: reapply exercise duration */
+document.getElementById('timerAuto').onclick=()=>{
+  const sel=document.getElementById('trExercise');
+  if(!sel) return;
+  const name=(allExercises()[+sel.value]||[])[0];
+  if(!name){toast('Bitte Übung wählen'); return;}
+  applyExerciseToTimer(name,{stage:timer.currentStage, side:timer.currentSide});
+};
+
+/* Test beep */
+document.getElementById('timerBeep').onclick=()=>timerBeep();
+
+/* Exercise dropdown change -> auto apply to timer */
+document.getElementById('trExercise').onchange=e=>{
+  const name=(allExercises()[+e.target.value]||[])[0]||'Übung';
+  applyExerciseToTimer(name,{stage:pickStageFromWeek()});
+  refreshExerciseInfo();
+};
+
+/* Foot exercise form: parse note to preset timer */
+document.getElementById('footNote').addEventListener('input',e=>{
+  const v=e.target.value||'';
+  const parsed=parseFootNote(v);
+  if(!parsed) return;
+  // try to find in FOOT_TIMES by matching name? Only if footName filled
+  const fname=document.getElementById('footName').value.trim();
+  if(FOOT_TIMES[fname]){
+    applyExerciseToTimer(fname,{stage:pickStageFromWeek()});
+    toast('Timer geladen: '+fname+' · '+parsed.sec+' s');
+  }else if(parsed.sec){
+    timerSet(parsed.sec,{name:'Fußübung', kind:'foot', armed:false});
+  }
+});
+document.getElementById('footName').addEventListener('input',e=>{
+  const n=e.target.value.trim();
+  if(FOOT_TIMES[n]){
+    applyExerciseToTimer(n,{stage:pickStageFromWeek()});
+    toast('Timer geladen: '+n);
+  }
+});
+
+/* Training week change -> update stage */
+document.getElementById('trainWeek').addEventListener('change',()=>{
+  timer.currentStage=pickStageFromWeek();
+  if(timer.armed && timer.currentName) refreshTimerMeta();
+});
+
+/* ===== Docked Mini-Timer (bottom safe-area bar, thumb-zone) ===== */
+function _ensureMini(){
+  if(document.getElementById('timerMini')) return;
+  const wrap=document.createElement('div');
+  wrap.id='timerMini';
+  wrap.setAttribute('role','region');
+  wrap.setAttribute('aria-label','Timer-Steuerung');
+  wrap.innerHTML='<div class="mini-time" id="miniTime">00:00</div><div class="mini-info"><b id="miniName">Timer</b><small id="miniMeta">&nbsp;</small></div><div class="mini-act"><button class="btn" id="miniToggle" aria-label="Start / Pause">▶</button><button class="btn soft" id="miniReset" aria-label="Zurücksetzen">↺</button><button class="btn soft" id="miniClose" aria-label="Timer schließen">✕</button></div>';
+  document.body.appendChild(wrap);
+  document.getElementById('miniToggle').addEventListener('click',()=>{
+    if(timer.running){
+      timerStop(); timerPaint();
+    }else{
+      if(timer.target<=0 && timer.mode!=='stopwatch'){
+        if(timer.armed && timer.currentName){
+          applyExerciseToTimer(timer.currentName,{stage:timer.currentStage, side:timer.currentSide});
+        }else{
+          timer.target=timer._initTarget||30;
+          timer._baseValue=timer.target;
+          timerPaint();
+        }
+      }
+      document.getElementById('timerStart').click();
+    }
+  });
+  document.getElementById('miniReset').addEventListener('click',()=>{
+    document.getElementById('timerReset').click();
+    _updateMini();
+  });
+  document.getElementById('miniClose').addEventListener('click',()=>{
+    timerStop();
+    timer.target=timer._initTarget||30;
+    timer._baseValue=timer.target;
+    timerPaint();
+    _showMini(false);
+  });
+}
+function _showMini(on){
+  _ensureMini();
+  const m=document.getElementById('timerMini');
+  if(on){
+    m.classList.add('show');
+    document.body.classList.add('hasMiniTimer');
+  }else{
+    m.classList.remove('show');
+    document.body.classList.remove('hasMiniTimer');
+  }
+}
+function _flashMini(kind){
+  _ensureMini();
+  const m=document.getElementById('timerMini');
+  m.classList.remove('alert','rest');
+  void m.offsetWidth;
+  m.classList.add(kind||'alert');
+  setTimeout(()=>m.classList.remove('alert','rest'),3600);
+}
+function _updateMini(){
+  _ensureMini();
+  if(!timer.running && timer.target<=0 && timer.mode!=='stopwatch'){
+    return;
+  }
+  _showMini(true);
+  const t=document.getElementById('miniTime');
+  const n=document.getElementById('miniName');
+  const meta=document.getElementById('miniMeta');
+  const tg=document.getElementById('miniToggle');
+  t.textContent=timerFmt(timer.target);
+  n.textContent=timer.currentName||'Timer';
+  const mlabel=timer.mode==='stopwatch'?'Stoppuhr':timer.mode==='intervals'?(timer.restActive?'Pause':'Satz '+(timer.intervalsDone+1)):'Countdown';
+  meta.textContent=(timer.currentStage?'Stufe '+timer.currentStage+' · ':'')+mlabel;
+  tg.textContent=timer.running?'⏸':'▶';
+}
+/* Unlock audio context on the very first user gesture (iOS Safari requirement). */
+['touchstart','touchend','click','keydown'].forEach(ev=>{
+  document.addEventListener(ev,function _unlockOnce(){
+    _unlockAudio();
+    document.removeEventListener(ev,_unlockOnce,true);
+  },true);
+});
+
+/* Initial paint */
+refreshTimerMeta();
+timerPaint();
+_ensureMini();
+
+
+/* ===== Übungs-Details & Progression (v3) ===== */
+const EX_DETAILS={
+'Dead Bug':{
+  cat:'Aktivierung',
+  desc:'Rückenlage, Arme zur Decke, Beine in Hüfte/Knie 90°. Bauch fest, unterer Rücken bleibt am Boden. Ein Bein strecken, gleichzeitig den Gegenarm nach hinten führen – nicht den Boden berühren – und zurück. Seite wechseln.',
+  breathing:'Ausatmen beim Strecken, einatmen beim Zurückführen. Bauchspannung durchgehend halten.',
+  mistakes:[
+    'Unterer Rücken hebt vom Boden ab (Bauch zu locker).',
+    'Bein zu hoch gestreckt oder zu schnell – Kontrolle geht verloren.',
+    'Nur Bein ODER nur Arm bewegt – immer diagonal arbeiten.'
+  ],
+  footHint:'Mit Einlagen: Füße flach aufstellen oder in der Luft lassen, nicht aktiv gegen die Einlage drücken. Bewegung klein halten, Fuß nicht überlasten.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×6 pro Seite, kontrolliert, Rücken bleibt am Boden.',crit:'Wenn 2×8 sauber ohne Rückenheben möglich.'},
+    {n:2,label:'Stabilisierung',text:'2×8 pro Seite, gleichmäßiger Atem­rhythmus.',crit:'Wenn 3 Sätze ohne Technikabbruch möglich.'},
+    {n:3,label:'Intensivierung',text:'3×8–10, Bein kurz vor dem Boden 1 Sekunde halten.',crit:'Wenn 3×10 sauber, RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×10–12, ggf. leichte Hantel in der Hand.',crit:'Wenn 3×12 mit RPE ≤ 8, Reiz gut toleriert.'}
+  ],
+  regression:'Nur ein Bein strecken (kein Arm), oder Knie weniger strecken. Pause zwischen Seiten. Bei Rücken­schmerz: Stufe zurück.'
+},
+'Wandhocke':{
+  cat:'Beine & Gesäß',
+  desc:'Rücken an die Wand, Füße hüftbreit ca. 20 cm davor. Langsam ab­rutschen bis Oberschenkel waagrecht, Knie hinter den Fußspitzen. Spannung halten, nicht ins Hohlkreuz fallen.',
+  breathing:'Locker weiteratmen – nicht pressen. Spannung aus Bauch & Gesäß halten.',
+  mistakes:[
+    'Knie fallen nach innen (X-Bein) – Knie aktiv nach außen schieben.',
+    'Rücken löst sich von der Wand / Hohlkreuz.',
+    'Zu tief – Belastung auf Knie zu hoch.'
+  ],
+  footHint:'Bei Einlagen: Füße gerade, Belastung gleichmäßig auf ganzer Sohle. Belastung langsam steigern (10–20 s). Bei Schmerz im linken Fuß: kürzer halten oder Sitz-Variante.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×20 s, Oberschenkel leicht oberhalb 90°.',crit:'Wenn 2×30 s schmerzfrei.'},
+    {n:2,label:'Stabilisierung',text:'2×30 s, voller 90°-Winkel.',crit:'Wenn 3×30–45 s möglich.'},
+    {n:3,label:'Intensivierung',text:'3×30–45 s, Spannung halten.',crit:'Wenn 3×45 s mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×45–60 s, ggf. ein Bein leicht anheben.',crit:'Wenn 3×60 s sauber, Reiz toleriert.'}
+  ],
+  regression:'Sitz-Variante (höher), Wandhocke auf einem Bein weglassen, Pausen zwischen Sätzen. Bei Knieschmerz: Stufe zurück oder Physiotherapeut fragen.'
+},
+'Kniebeugen':{
+  cat:'Beine & Gesäß',
+  desc:'Hüftbreit stehen, Zehen leicht außen. Brust aufrecht, Blick nach vorn. Gesäß nach hinten-unten schieben, als würdest du dich auf einen Stuhl setzen. Knie bleiben über den Fußspitzen. Hochkommen durch Fersen und Gesäß.',
+  breathing:'Einatmen beim Absenken, ausatmen beim Hochkommen. Bauchspannung halten.',
+  mistakes:[
+    'Knie fallen nach innen – aktiv nach außen drücken.',
+    'Fersen heben ab – Gewicht auf Ferse/Mittelfuß halten.',
+    'Oberkörper kippt stark nach vorn – Rücken strecken, Brust raus.'
+  ],
+  footHint:'Bei Einlagen: gleichmäßig belasten, Knie in Linie mit Fußspitze. Knie­beuge langsam und kontrolliert, Sprung­varianten meiden.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×8–10, nur bis halbe Tiefe.',crit:'Wenn 2×10 in voller Tiefe schmerzfrei.'},
+    {n:2,label:'Stabilisierung',text:'2×10–12, volle Tiefe (Oberschenkel mind. waagrecht).',crit:'Wenn 3 Sätze sauber.'},
+    {n:3,label:'Intensivierung',text:'3×10–15, kurze Pause unten (1 s).',crit:'Wenn 3×15 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×15–20 oder Kurzhantel an der Seite.',crit:'Wenn 3×15 mit RPE ≤ 8, Reiz stabil.'}
+  ],
+  regression:'Nur halbe Tiefe, an Wand/Tür abstützen, Stuhl als Hilfe. Bei Knieschmerz: Bewegungstiefe reduzieren, Arzt klären.'
+},
+'Ausfallschritt':{
+  cat:'Beine & Gesäß',
+  desc:'Aufrecht stehen. Großer Schritt nach vorn, hinteres Knie kontrolliert Richtung Boden absenken (nicht aufsetzen). Vorderes Knie bleibt über Fußspitze. Hochkommen, hinteres Bein nach vorn ziehen (= nächste Wdh.).',
+  breathing:'Einatmen beim Absenken, ausatmen beim Hochkommen.',
+  mistakes:[
+    'Vorderes Knie schießt über die Fußspitze hinaus.',
+    'Oberkörper kippt seitlich oder nach vorn.',
+    'Hinteres Knie knallt auf den Boden – abfedern, kontrollieren.'
+  ],
+  footHint:'Bei Einlagen: Schritt nicht zu lang, linker Fuß bewusst stabil halten. Wenn Schritt zu groß: kürzer treten, sonst mehr Belastung auf Knie/Sprunggelenk.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×6 pro Seite, kleiner Schritt.',crit:'Wenn 2×8 pro Seite schmerzfrei.'},
+    {n:2,label:'Stabilisierung',text:'2×8 pro Seite, sauberer Winkel.',crit:'Wenn 3 Sätze ohne Ausweichbewegung.'},
+    {n:3,label:'Intensivierung',text:'3×8–10 pro Seite.',crit:'Wenn 3×10 pro Seite mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×10–12 pro Seite oder Kurzhantel.',crit:'Wenn 3×12 pro Seite sauber.'}
+  ],
+  regression:'Nur bis halbe Tiefe, an Wand festhalten, oder Ausfallschritt zurück statt vor. Bei Knie-/Sprunggelenkschmerz links: zurück zur Stufe 2.'
+},
+'Beckenlift':{
+  cat:'Beine & Gesäß',
+  desc:'Rückenlage, Füße hüftbreit aufgestellt, Arme neben dem Körper. Gesäß anheben bis Schulter-Hüfte-Knie eine Linie bilden. 1 Sekunde oben halten, langsam absenken (nicht ganz absetzen).',
+  breathing:'Ausatmen beim Anheben, einatmen beim Absenken. Bauch fest, Gesäß aktiv.',
+  mistakes:[
+    'Hohlkreuz oben / ins Becken kippen – Bauch fest, Rücken gerade.',
+    'Gesäß ganz absenken – Spannung halten, kurz vor dem Boden stoppen.',
+    'Füße zu nah am Gesäß – zu viel Druck auf den unteren Rücken.'
+  ],
+  footHint:'Mit Einlagen: Füße voll aufstellen, gleichmäßig belasten. Einbeinige Variante meiden – sie belastet linken Fuß stärker.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×10–12, Hüfte nicht über Schulterhöhe.',crit:'Wenn 2×12 sauber.'},
+    {n:2,label:'Stabilisierung',text:'2×12–15, oben 1 s halten.',crit:'Wenn 3 Sätze mit Pause möglich.'},
+    {n:3,label:'Intensivierung',text:'3×15–20.',crit:'Wenn 3×20 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×20–25 oder Pause oben 2–3 s.',crit:'Wenn 3×20 mit RPE ≤ 8.'}
+  ],
+  regression:'Nur ein Bein anheben (statisch), kleiner Bewegungsumfang. Bei Rückenschmerz: Bewegungsumfang reduzieren.'
+},
+'Liegestütze':{
+  cat:'Oberkörper',
+  desc:'Hände unter Schultern, Körper eine Linie. Bauch und Gesäß fest. Absenken mit Kontrolle (2–3 s), Hände auf Schulterhöhe, Ellenbogen ca. 45° zum Körper. Hochdrücken, nicht ins Hohlkreuz fallen.',
+  breathing:'Einatmen beim Absenken, ausatmen beim Hochdrücken.',
+  mistakes:[
+    'Hüfte hängt durch / Hohlkreuz – Bauch fest, Linie halten.',
+    'Ellenbogen 90° ab – stärker auf Schulter, lieber 45°.',
+    'Kopf fällt nach vorn – Nacken lang, Blick auf Boden.'
+  ],
+  footHint:'Mit Einlagen: Zehen aufstellen wie gewohnt. Knie-Variante bevorzugen, falls Sprunggelenk/Fuß schmerzt.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×5–8, gerne auf den Knien.',crit:'Wenn 2×8 sauber in voller Variante.'},
+    {n:2,label:'Stabilisierung',text:'2×8–10, volle Variante.',crit:'Wenn 3 Sätze sauber.'},
+    {n:3,label:'Intensivierung',text:'3×8–12.',crit:'Wenn 3×12 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×10–15 oder erhöhte Hände.',crit:'Wenn 3×12 mit RPE ≤ 8.'}
+  ],
+  regression:'Auf den Knien, an der Wand, oder Erhöhung (Bank/Schritt). Bei Schulter-/Handgelenkschmerz: Erhöhung nutzen.'
+},
+'Schulterdrücken':{
+  cat:'Oberkörper',
+  desc:'Kurzhanteln auf Schulterhöhe, Rücken gerade, Bauch fest. Drücken nach oben, Ellenbogen nicht ganz durchgestreckt. Kontrolliert absenken bis Schulterhöhe.',
+  breathing:'Ausatmen beim Drücken, einatmen beim Absenken.',
+  mistakes:[
+    'Ins Hohlkreuz fallen – Bauch fest, Gesäß anspannen.',
+    'Ellenbogen vorn statt seitlich – mehr Belastung auf Nacken.',
+    'Stoß-/Prellbewegung – gleichmäßig drücken und senken.'
+  ],
+  footHint:'Sitzend oder stabil stehend – kein Ausfallschritt. Bei Schulter-/Nackenproblemen: engerer Griff (Hanteln vor dem Kopf).',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×6–8, leichtes Gewicht.',crit:'Wenn 2×8 sauber, RPE ≤ 6.'},
+    {n:2,label:'Stabilisierung',text:'2×8–10.',crit:'Wenn 3 Sätze möglich.'},
+    {n:3,label:'Intensivierung',text:'3×8–12 (Double-Progression: 3×8 → 3×10 → 3×12).',crit:'Wenn 3×12 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×10–15 oder schwerere Hanteln.',crit:'Wenn 3×12 mit RPE ≤ 8, dann Gewicht +2,5 kg.'}
+  ],
+  regression:'Sitzend, ohne Gewicht, oder an der Wand. Bei Schmerz: leichteres Gewicht, kleinere Bewegung.'
+},
+'Trizeps-Dips':{
+  cat:'Oberkörper',
+  desc:'Hände hinter dem Körper auf Bank/Stuhl, Füße aufgestellt. Gesäß nahe der Bank, Arme gestreckt. Absenken bis Oberarme waagrecht, Ellenbogen nach hinten. Hochdrücken über die Arme.',
+  breathing:'Einatmen beim Absenken, ausatmen beim Hochdrücken.',
+  mistakes:[
+    'Gesäß zu weit weg von der Bank – Schulter zu stark belastet.',
+    'Ellbogen fallen nach außen – näher am Körper halten.',
+    'Zu tief gehen – Schulterschutz.'
+  ],
+  footHint:'Füße voll aufstellen mit Einlage – nicht nur Zehen. Belastung gleichmäßig halten.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×5–8, Beine angewinkelt.',crit:'Wenn 2×8 mit gestreckten Beinen.'},
+    {n:2,label:'Stabilisierung',text:'2×8–10.',crit:'Wenn 3 Sätze sauber.'},
+    {n:3,label:'Intensivierung',text:'3×8–12.',crit:'Wenn 3×12 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×10–15, ggf. Kurzhantel auf den Oberschenkeln.',crit:'Wenn 3×12 mit RPE ≤ 8.'}
+  ],
+  regression:'Beine angewinkelt, kleinere Bewegung. Bei Schulter-/Handgelenkschmerz: abbrechen, alternative Übung wählen.'
+},
+'Tischrudern':{
+  cat:'Oberkörper',
+  desc:'Unter einen stabilen Tisch greifen, Körper gestreckt darunter. Brust zum Tisch ziehen, Schulterblätter zusammen. Langsam absenken. Bauch fest, Körper eine Linie.',
+  breathing:'Ausatmen beim Ziehen, einatmen beim Absenken.',
+  mistakes:[
+    'Hüfte hängt durch / Hohlkreuz – Bauch fest.',
+    'Nur Arme ziehen – aus dem Rücken arbeiten.',
+    'Ruckartig / unkontrolliert absenken.'
+  ],
+  footHint:'Füße flach am Boden mit Einlage – kein Hoch­stellen auf Zehen, sonst Knick im Sprunggelenk links.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×8–10, leichter Winkel.',crit:'Wenn 2×10 in waagrechter Position.'},
+    {n:2,label:'Stabilisierung',text:'2×10–12, waagrecht halten.',crit:'Wenn 3 Sätze sauber.'},
+    {n:3,label:'Intensivierung',text:'3×12–15.',crit:'Wenn 3×15 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×15–20 oder Hantel auf den Rücken.',crit:'Wenn 3×15 mit RPE ≤ 8.'}
+  ],
+  regression:'Tisch weiter oben / flacher Winkel, weniger Bewegung. Bei Schulter-/Handgelenkschmerz: Variante wechseln (z. B. Band-Rudern).'
+},
+'KH-Hammer-Curls':{
+  cat:'Oberkörper',
+  desc:'Kurzhanteln neutral (Daumen nach vorn) seitlich am Körper. Ellenbogen fest an der Seite. Beugen bis Hände vorn Schulterhöhe, langsam absenken. Nicht schwingen.',
+  breathing:'Ausatmen beim Beugen, einatmen beim Absenken.',
+  mistakes:[
+    'Mit Oberkörper schwingen – Schwung aus dem Rücken.',
+    'Ellbogen wandert nach vorn – eng am Körper halten.',
+    'Unten ganz locker lassen – Spannung halten.'
+  ],
+  footHint:'Stehend hüftbreit stabil, kein Wippen. Bei Einlage: Balance halten.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×8–10, moderates Gewicht.',crit:'Wenn 2×10 sauber.'},
+    {n:2,label:'Stabilisierung',text:'2×10–12.',crit:'Wenn 3 Sätze möglich.'},
+    {n:3,label:'Intensivierung',text:'3×10–12 (Double-Progression: Wiederholungen hoch, dann Gewicht +1 kg).',crit:'Wenn 3×12 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×12–15, ggf. +1–2 kg.',crit:'Wenn 3×12 mit RPE ≤ 8.'}
+  ],
+  regression:'Sitzend, leichteres Gewicht. Bei Ellenbogen-/Handgelenk­schmerz: andere Bizeps-Variante oder Pause.'
+},
+'Superman Hold':{
+  cat:'Rumpf',
+  desc:'Bauchlage, Arme nach vorn, Beine gestreckt. Bauch fest, unterer Rücken bleibt entspannt. Arme und Beine gleichzeitig leicht anheben (ca. 10–15 cm), Position halten. Nicht ins Hohlkreuz fallen.',
+  breathing:'Locker atmen, Bauchspannung halten.',
+  mistakes:[
+    'Zu hoch anheben – Hohlkreuz, unterer Rücken schmerzt.',
+    'Nur Arme oder nur Beine – beides gleichzeitig.',
+    'Pressen/Atem anhalten – gleichmäßig weiteratmen.'
+  ],
+  footHint:'Zehen auflegen – keine Rolle, sonst Sprunggelenk links überlastet. Bewegung klein halten.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×15 s.',crit:'Wenn 2×20 s ohne Schmerz.'},
+    {n:2,label:'Stabilisierung',text:'2×20 s.',crit:'Wenn 3×20 s sauber.'},
+    {n:3,label:'Intensivierung',text:'3×20–30 s.',crit:'Wenn 3×30 s mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×30–45 s.',crit:'Wenn 3×30 s mit RPE ≤ 8.'}
+  ],
+  regression:'Nur Arme oder nur Beine anheben, weniger Spannweite. Bei Rückenschmerz: Stufe zurück oder Übung ersetzen (z. B. Bird-Dog).'
+},
+'Plank':{
+  cat:'Rumpf',
+  desc:'Unterarmstütz, Ellenbogen unter Schultern, Körper eine Linie. Bauch & Gesäß fest. Nicht ins Hohlkreuz fallen, Hüfte nicht durchhängen. Blick zum Boden.',
+  breathing:'Ruhig weiteratmen, nicht pressen.',
+  mistakes:[
+    'Hüfte hängt durch / Hohlkreuz.',
+    'Hüfte zu hoch – Bauch nicht mehr aktiv.',
+    'Schulter zu den Ohren – Schulter runter ziehen.'
+  ],
+  footHint:'Mit Einlagen: Zehenballen aufstellen, Belastung gleichmäßig. Nicht wippen. Bei Schmerz im Sprunggelenk links: aus den Knien stützen.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×20 s, gerne auf den Knien.',crit:'Wenn 2×30 s in voller Variante.'},
+    {n:2,label:'Stabilisierung',text:'2×30 s, volle Variante.',crit:'Wenn 3×30 s ohne Ausweichbewegung.'},
+    {n:3,label:'Intensivierung',text:'3×30–45 s.',crit:'Wenn 3×45 s mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×45–60 s oder mit Arm heben.',crit:'Wenn 3×45 s mit RPE ≤ 8.'}
+  ],
+  regression:'Auf den Knien, kürzere Halte, Seiten­plank als Wechsel. Bei Rücken-/Schulterschmerz: Stufe zurück.'
+},
+'Negativer Sit-Up':{
+  cat:'Rumpf',
+  desc:'Rückenlage, Beine angewinkelt. Mit angespanntem Bauch langsam aufrichten (ca. 3–5 s) bis fast sitzend. Dann kontrolliert (3–5 s) wieder absenken – das ist die Hauptarbeit.',
+  breathing:'Ausatmen beim Aufrichten, einatmen beim Absenken. Bauch fest.',
+  mistakes:[
+    'Schwung aus dem Rücken / Händen – Bauch fest, Arme vor der Brust.',
+    'Zu schnell absenken – langsam ist die Übung.',
+    'Kinn an die Brust – Nacken lang halten.'
+  ],
+  footHint:'Füße aufgestellt mit Einlage – niemand hält die Füße. Bauch arbeitet, nicht Hüftbeuger.',
+  stages:[
+    {n:1,label:'Einstieg',text:'2×5–8, langsam (3 s runter).',crit:'Wenn 2×8 sauber.'},
+    {n:2,label:'Stabilisierung',text:'2×8, Tempo 4–5 s runter.',crit:'Wenn 3 Sätze möglich.'},
+    {n:3,label:'Intensivierung',text:'3×8–12.',crit:'Wenn 3×12 mit RPE ≤ 7.'},
+    {n:4,label:'Konsolidierung',text:'3×10–15.',crit:'Wenn 3×12 mit RPE ≤ 8.'}
+  ],
+  regression:'Nur die letzten 30° aufrichten / absenken, kürzerer Hebel. Bei Rücken-/Nackenschmerz: Stufe zurück oder Crunch.'
+}
+};
+
+const FOOT_DETAILS={
+'Zehen spreizen':{
+  desc:'Barfuß oder in Socken, aufrecht hinsetzen oder stehen. Alle Zehen so weit wie möglich vom Mittelfuß abspreizen, kurz halten, wieder entspannen. Beide Füße gleichzeitig.',
+  mistakes:[
+    'Nur kleine Zehen bewegen – große Zehe aktiv mitnehmen.',
+    'Zu ruckartig – gleichmäßig spreizen und lösen.',
+    'Außenkante knickt ab – Füße parallel halten.'
+  ],
+  footHint:'Sehr wichtig für die kleine Zehen-Muskulatur. Bei deiner Fehlstellung links: regelmäßig 2× täglich einbauen. Wirkt gegen Spreizfuß.',
+  progression:[
+    {n:1,label:'Sitzend',text:'2×30 s pro Fuß, langsam spreizen/lösen.',crit:'Wenn problemlos 2 Min pro Fuß möglich.'},
+    {n:2,label:'Stehend',text:'2×45 s pro Fuß.',crit:'Wenn 2 Min pro Fuß sauber.'},
+    {n:3,label:'Mit Einlage',text:'2×60 s pro Fuß, Einlage drin – bewusst Zehen dagegen drücken.',crit:'Wenn ohne Krampf 2 Min möglich.'},
+    {n:4,label:'Unter Belastung',text:'In Schrittstellung, last auf linkem Fuß – 3×45 s.',crit:'Wenn unter Belastung stabil.'}
+  ]
+},
+'Fußgewölbe heben (Short Foot)':{
+  desc:'Barfuß auf dem Boden. Ferse & Zehen bleiben am Boden, das Fußgewölbe (Längs­gewölbe) aktiv nach oben ziehen, als würdest du den Fuß „verkürzen“. Halten, langsam lösen.',
+  mistakes:[
+    'Zehen krallen – sie sollen sich nur leicht mitbewegen.',
+    'Nur den großen Zehenballen drücken – gleichmäßige Spannung im ganzen Fuß.',
+    'Zu stark / verkrampft – kleine, kontrollierte Bewegung.'
+  ],
+  footHint:'Kernübung gegen Plattfuß. Links bei dir mit Einlage: Übung barfuß ohne Einlage, damit die Fußmuskeln arbeiten. Vor dem Aufstehen und abends einbauen.',
+  progression:[
+    {n:1,label:'Sitzend',text:'2×10 pro Fuß, 3 s halten.',crit:'Wenn 2×15 sauber.'},
+    {n:2,label:'Stehend',text:'2×12 pro Fuß, 3–5 s halten.',crit:'Wenn 2×15 pro Fuß mit RPE ≤ 5.'},
+    {n:3,label:'Einbeinig',text:'2×10 pro Seite, Balance halten.',crit:'Wenn 30 s einbeinig stabil.'},
+    {n:4,label:'Unter Belastung',text:'In Schrittstellung mit Gewichtsverlagerung 3×8 pro Seite.',crit:'Wenn flüssig in Bewegung möglich.'}
+  ]
+},
+'Waden heben & senken':{
+  desc:'Barfuß oder in Schuhen mit Einlage. Auf eine Stufe oder festen Rand stehen, Füße hüftbreit. Langsam auf die Zehenspitzen heben, 1 s halten, langsam absenken (3 s). Fersen knicken unter Stufenniveau.',
+  mistakes:[
+    'Zu schnell ablassen – langsam ist entscheidend.',
+    'Fuß knickt nach außen – gerade hoch/runter.',
+    'Nur Ballen, nicht die Zehen – ganze Vorfuß nutzen.'
+  ],
+  footHint:'Mit Einlage in den Schuhen: etwas erschwert, weil Sprunggelenk schon korrigiert. Dafür dosiert üben, nicht zu viel Volumen. Bei Schmerz im linken Fuß: kürzer halten, Pausen.',
+  progression:[
+    {n:1,label:'Boden',text:'2×12, gleichmäßig.',crit:'Wenn 2×15 sauber.'},
+    {n:2,label:'Stufe',text:'2×15 mit tiefer Absenkung.',crit:'Wenn 3×15 ohne Schmerz.'},
+    {n:3,label:'Einbeinig',text:'2×10 pro Seite – nicht bei Schmerz links.',crit:'Wenn 2×15 pro Seite stabil.'},
+    {n:4,label:'Mit Zusatz',text:'3×12 mit Rucksack / Hantel.',crit:'Wenn 3×15 mit Zusatz möglich.'}
+  ]
+},
+'Handtuch einrollen':{
+  desc:'Barfuß auf einem kleinen Handtuch (Socke / Tuch). Nur mit den Zehen das Tuch zu dir ziehen und Stück für Stück einrollen.',
+  mistakes:[
+    'Ferse hebt mit – Ferse bleibt am Boden.',
+    'Zu schnell – ruhig, kontrolliert einrollen.',
+    'Große Zehe macht alles – alle Zehen nutzen.'
+  ],
+  footHint:'Sehr gut für die Zehenbeuger und das Längs­gewölbe. Regelmäßig 2–3× pro Woche. Bei Krämpfen: weniger Wiederholungen, Pausen einlegen.',
+  progression:[
+    {n:1,label:'Sitzend, leicht',text:'2× Rolle mit Socke.',crit:'Wenn ohne Krampf 1 Rolle.'},
+    {n:2,label:'Stehend',text:'2× mit größerem Tuch.',crit:'Wenn 2 Rollen sauber.'},
+    {n:3,label:'Stehend, schwer',text:'3× mit Handtuch (höherer Widerstand).',crit:'Wenn 3 Rollen ohne Krampf.'},
+    {n:4,label:'Mit Einlage',text:'Mit Einlage am Boden, gleicher Ablauf.',crit:'Wenn 3 Rollen mit Einlage möglich.'}
+  ]
+},
+'Balance-Pad stehen':{
+  desc:'Auf einem weichen Kissen / Balance-Pad barfuß stehen. Ruhig 30–60 s balancieren, Knie leicht gebeugt, Bauch fest. Dann anderes Bein.',
+  mistakes:[
+    'Fuß knickt nach außen – Längsgewölbe aktivieren.',
+    'Knie durchgestreckt – leicht gebeugt halten.',
+    'Schulter/Nacken verkrampft – Schultern fallen lassen.'
+  ],
+  footHint:'Direkt an deine Fehlstellung links anpassen: barfuß und ohne Einlage üben, damit das Fußgewölbe arbeiten kann. Mit Einlage im Schuh bleibt die Korrektur passiv. Täglich 1–2 Min einplanen.',
+  progression:[
+    {n:1,label:'Beidbeinig',text:'2×30 s, beide Füße.',crit:'Wenn 2×60 s ohne Wackeln.'},
+    {n:2,label:'Beidbeinig, Augen zu',text:'2×30 s mit geschlossenen Augen (nur wenn sicher).',crit:'Wenn 2×30 s stabil.'},
+    {n:3,label:'Einbeinig',text:'2×20 s pro Seite – anfangs an Wand halten.',crit:'Wenn 30 s pro Seite frei.'},
+    {n:4,label:'Einbeinig, Augen zu',text:'3×15 s pro Seite.',crit:'Wenn 3×20 s pro Seite stabil.'}
+  ]
+},
+'Marble Pickup':{
+  desc:'Barfuß sitzen, 10–15 kleine Murmeln / Kugeln auf dem Boden. Nur mit den Zehen einzeln aufheben und in ein Gefäß legen.',
+  mistakes:[
+    'Mit Hand helfen – nicht erlaubt.',
+    'Krämpfe in der Fußsohle – Pausen, weniger Kugeln.',
+    'Ferse hebt – Ferse bleibt am Boden.'
+  ],
+  footHint:'Übung für Geschicklichkeit und Beuger. Bei Krämpfen links: Anzahl reduzieren, Pausen. Wirkt unterstützend gegen Fehlstellung.',
+  progression:[
+    {n:1,label:'Sitzend',text:'1×10 Kugeln pro Fuß.',crit:'Wenn 2×10 ohne Krampf.'},
+    {n:2,label:'Sitzend, doppelt',text:'2×10 Kugeln pro Fuß.',crit:'Wenn 3×10 sauber.'},
+    {n:3,label:'Stehend',text:'2×10 Kugeln pro Fuß im Stehen.',crit:'Wenn 2×15 möglich.'},
+    {n:4,label:'Mit Timer',text:'3×10 Kugeln pro Fuß, schneller.',crit:'Wenn 3×15 unter 2 Min pro Fuß.'}
+  ]
+}
+};
+
+/* Hilfsfunktion: HTML sichern */
+function exEsc(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+function renderExerciseInfo(name, opts){
+  opts=opts||{};
+  const d=EX_DETAILS[name]; if(!d) return '';
+  const footBox = d.footHint ? `<div class="foot-note">⚠ Fuß-Hinweis: ${exEsc(d.footHint)}</div>` : '';
+  const stages = (d.stages||[]).map(s=>`<div class="stage"><div class="num">${s.n}</div><div><b>Stufe ${s.n} – ${exEsc(s.label)}:</b> ${exEsc(s.text)}<div class="crit">↑ Nächste Stufe wenn: ${exEsc(s.crit)}</div></div></div>`).join('');
+  const mistakes = (d.mistakes||[]).map(m=>`<li>${exEsc(m)}</li>`).join('');
+  const regression = d.regression?`<div class="regression">↘ Regression: ${exEsc(d.regression)}</div>`:'';
+  return `
+    <div class="ex-info" role="region" aria-label="Details zu ${exEsc(name)}">
+      <h4>${exEsc(name)} <span class="pill">${exEsc(d.cat)}</span></h4>
+      <div><b>Ausführung:</b> ${exEsc(d.desc)}</div>
+      <div style="margin-top:4px"><b>Atmung:</b> ${exEsc(d.breathing)}</div>
+      <div style="margin-top:6px"><b>Häufige Fehler:</b></div>
+      <ul>${mistakes}</ul>
+      <div style="margin-top:6px"><b>Progression (Stufe 1 → 4):</b></div>
+      ${stages}
+      ${footBox}
+      ${regression}
+    </div>`;
+}
+
+function renderFootInfo(name){
+  const d=FOOT_DETAILS[name]; if(!d) return '';
+  const mistakes=(d.mistakes||[]).map(m=>`<li>${exEsc(m)}</li>`).join('');
+  const prog=(d.progression||[]).map(s=>`<div class="stage"><div class="num">${s.n}</div><div><b>Stufe ${s.n} – ${exEsc(s.label)}:</b> ${exEsc(s.text)}<div class="crit">↑ Nächste Stufe wenn: ${exEsc(s.crit)}</div></div></div>`).join('');
+  return `
+    <div class="ex-info" role="region" aria-label="Details zu ${exEsc(name)}">
+      <h4>${exEsc(name)}</h4>
+      <div><b>Ausführung:</b> ${exEsc(d.desc)}</div>
+      <div style="margin-top:6px"><b>Häufige Fehler:</b></div>
+      <ul>${mistakes}</ul>
+      <div style="margin-top:6px"><b>Progression (Stufe 1 → 4):</b></div>
+      ${prog}
+      <div class="foot-note">⚠ Fuß-Hinweis: ${exEsc(d.footHint)}</div>
+    </div>`;
+}
+
+function renderExercisesRef(){
+  // Krafttraining – nach Kategorie gruppiert
+  const groups={};
+  EX.forEach(e=>{
+    const cat=e[1]||'Sonstige';
+    (groups[cat]=groups[cat]||[]).push(e[0]);
+  });
+  const order=['Aktivierung','Beine & Gesäß','Oberkörper','Rumpf','Sonstige'];
+  let html='';
+  order.forEach(cat=>{
+    if(!groups[cat]) return;
+    html+=`<div class="ref-cat-title">${exEsc(cat)}</div><div class="ex-grid">`;
+    groups[cat].forEach(name=>{
+      const info=EX_TIMES[name];
+      const stage=info?info.stages[1]:null;
+      const hint=info?(info.kind==='time'?(stage.sec+' s'):((stage.reps||8)+' ×')):'–';
+      html+=`<div class="ex-card"><h3>${exEsc(name)}</h3><div class="cat">${exEsc(cat)}</div><button type="button" class="ex-timer-btn" data-load-ex="${exEsc(name)}" title="Timer für diese Übung laden">⏱ Timer: <b>${exEsc(hint)}</b></button><details><summary>Details, Fehler &amp; Progression</summary><div class="body">${renderExerciseInfo(name)}</div></details></div>`;
+    });
+    html+=`</div>`;
+  });
+  // Fußübungen
+  html+=`<div class="ref-cat-title">Fußübungen (links / Einlage)</div><div class="ex-grid">`;
+  Object.keys(FOOT_DETAILS).forEach(name=>{
+    const info=FOOT_TIMES[name];
+    const stage=info?info.stages[1]:null;
+    const hint=info?(info.kind==='time'?(stage.sec+' s'):((stage.reps||8)+' ×')):'–';
+    html+=`<div class="ex-card"><h3>${exEsc(name)}</h3><div class="cat">Fuß</div><button type="button" class="ex-timer-btn" data-load-ex="${exEsc(name)}" title="Timer für diese Übung laden">⏱ Timer: <b>${exEsc(hint)}</b></button><details><summary>Details, Fehler &amp; Progression</summary><div class="body">${renderFootInfo(name)}</div></details></div>`;
+  });
+  html+=`</div>`;
+  document.getElementById('exercisesRef').innerHTML = html;
+  // Delegated handler for "load into timer"
+  document.getElementById('exercisesRef').querySelectorAll('[data-load-ex]').forEach(btn=>{
+    btn.onclick=()=>{
+      const name=btn.dataset.loadEx;
+      const stage=pickStageFromWeek();
+      applyExerciseToTimer(name,{stage});
+      // highlight briefly
+      document.querySelectorAll('[data-load-ex]').forEach(b=>b.removeAttribute('data-armed'));
+      btn.setAttribute('data-armed','true');
+      // open training tab
+      setView('training');
+      // sync dropdown
+      const sel=document.getElementById('trExercise');
+      if(sel){
+        const idx=allExercises().findIndex(x=>x[0]===name);
+        if(idx>=0) sel.value=String(idx);
+      }
+      // open info panel
+      const ip=document.getElementById('exInfoPanel');
+      if(ip) refreshExerciseInfo();
+      toast('⏱ Timer geladen: '+name);
+      // smooth scroll to timer card
+      const tc=document.querySelector('.card.timer');
+      if(tc && tc.scrollIntoView) tc.scrollIntoView({behavior:'smooth',block:'center'});
+    };
+  });
+}
+
+/* Inline-Panel unter dem Übungs-Dropdown im Training-Tab */
+function refreshExerciseInfo(){
+  const sel=document.getElementById('trExercise');
+  const target=document.getElementById('exInfoPanel');
+  if(!sel||!target) return;
+  const name = (allExercises()[+sel.value]||[])[0] || '';
+  if(!name || !EX_DETAILS[name]){ target.innerHTML=''; return; }
+  target.innerHTML = renderExerciseInfo(name);
+}
+
+document.getElementById('exInfoBtn').onclick=()=>{
+  const t=document.getElementById('exInfoPanel');
+  if(!t) return;
+  refreshExerciseInfo();
+  // toggle
+  if(t.innerHTML){ t.innerHTML=''; return; }
+};
+/* Sel-Change Hook in renderTraining (preserves original wiring, also refreshes mini) */
+const _origRenderTraining = renderTraining;
+renderTraining = function(){
+  _origRenderTraining();
+  refreshExerciseInfo();
+  const sel=document.getElementById('trExercise');
+  if(sel && !sel._wiredInfo){
+    sel._wiredInfo=true;
+    sel.addEventListener('change', refreshExerciseInfo);
+  }
+  try{_updateMini();}catch(_){}
+};
+renderExercisesRef();
+
+function renderAll(){document.documentElement.dataset.theme=S.theme;renderDashboard();renderProfile();renderTraining();renderNutrition();renderSupps();renderTracking();renderReview()}document.getElementById('theme').onclick=()=>{S.theme=S.theme==='dark'?'light':'dark';save(false)};document.getElementById('export').onclick=()=>{let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}));a.download='andreas-kompass-v2.json';a.click();toast('Export erstellt')};document.getElementById('import').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{S=JSON.parse(r.result);merge();save('Import erfolgreich')}catch(_){toast('Import nicht lesbar')}};r.readAsText(f)};document.getElementById('mDate').value=today();document.getElementById('trDate').value=today();document.getElementById('footDate').value=today();renderAll();
+
+/* ===== PWA: Service-Worker-Registrierung & iOS-Hinweis ===== */
+function showUpdateToast(){try{
+  var t=document.getElementById('toast');
+  t.textContent='Neue Version verfügbar – neu laden';
+  t.classList.add('show');
+  setTimeout(function(){
+    t.textContent='Tippe zum Aktualisieren';
+    t.onclick=function(){if(navigator.serviceWorker&&navigator.serviceWorker.controller){
+      navigator.serviceWorker.controller.postMessage({type:'SKIP_WAITING'});}
+      location.reload();};
+  },300);
+}catch(e){}}
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('./sw.js').then(function(reg){
+    if(reg.waiting){showUpdateToast();}
+    reg.addEventListener('updatefound',function(){
+      var w=reg.installing;
+      if(!w)return;
+      w.addEventListener('statechange',function(){
+        if(w.state==='installed'&&navigator.serviceWorker.controller){
+          showUpdateToast();
+        }
+      });
+    });
+    navigator.serviceWorker.addEventListener('controllerchange',function(){
+      showUpdateToast();
+    });
+  }).catch(function(err){console.warn('SW-Registrierung fehlgeschlagen',err);});
+}
+/* iOS-Safari Standalone-Hinweis */
+try{
+  var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+  var standalone=window.navigator.standalone===true;
+  var dismissed=localStorage.getItem('andreasIosHintDismissed')==='1';
+  if(isIOS&&!standalone&&!dismissed){
+    var b=document.createElement('div');
+    b.className='ios-hint';
+    b.innerHTML='<span><b>App installieren:</b> Teilen-Symbol tippen → <i>Zum Home-Bildschirm</i></span>';
+    var btn=document.createElement('button');
+    btn.textContent='OK';
+    btn.onclick=function(){localStorage.setItem('andreasIosHintDismissed','1');b.remove();};
+    b.appendChild(btn);
+    document.body.appendChild(b);
+  }
+}catch(e){}
+</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
 </body></html>
