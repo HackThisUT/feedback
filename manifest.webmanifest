@@ -1,0 +1,52 @@
+{
+  "name": "Wochenreflexion Schulalltag",
+  "short_name": "Wochenreflexion",
+  "description": "Lokale Wochenreflexion für den Schulalltag – ohne Anmeldung, ohne Server.",
+  "lang": "de",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./?source=pwa",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "theme_color": "#0d5c4a",
+  "background_color": "#f7f4ec",
+  "categories": ["education", "productivity", "lifestyle"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Heute reflektieren",
+      "short_name": "Heute",
+      "description": "Direkt zum aktuellen Tag",
+      "url": "./?view=today",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Wochenauswertung",
+      "short_name": "Auswertung",
+      "description": "Rückblick auf die Woche",
+      "url": "./?view=summary",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
