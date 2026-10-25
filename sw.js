@@ -4,7 +4,7 @@
  */
 'use strict';
 
-const CACHE_VERSION  = 'wr-v3';
+const CACHE_VERSION  = 'wr-v4';
 const SHELL_CACHE    = `wr-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE  = `wr-runtime-${CACHE_VERSION}`;
 
